@@ -11,148 +11,123 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --eyeworld-primary: #1A9B8E;
-            --eyeworld-dark: #0F6B62;
-            --eyeworld-light: #E8F7F5;
-            --topcare-primary: #1565C0;
-            --topcare-accent: #E65100;
-            --topcare-light: #E8F0FE;
-            --text-dark: #1A1A1A;
-            --text-light: #666666;
-            --border-light: #E0E0E0;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background: #F5F5F5;
+            color: #333;
+            background: #f5f5f5;
         }
 
-        /* Header Navigation */
-        .header {
-            background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        html[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        html[lang="ar"] body {
+            font-family: 'Noto Naskh Arabic', 'Noto Sans Arabic', sans-serif;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1E6B62 0%, #2EC4A9 100%);
+            color: white;
+            padding: 20px 0;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header-content {
+        .header-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 40px;
+            padding: 0 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
         }
 
-        .header-title {
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-section h1 {
             font-size: 24px;
             font-weight: 700;
-            color: var(--text-dark);
+            letter-spacing: -0.5px;
         }
 
-        .header-controls {
+        .lang-toggle {
             display: flex;
-            gap: 20px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .language-toggle {
-            display: flex;
-            gap: 8px;
-            background: #F0F0F0;
-            padding: 6px;
-            border-radius: 4px;
+            gap: 10px;
         }
 
         .lang-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
             padding: 8px 16px;
-            border: none;
-            background: transparent;
+            border-radius: 4px;
             cursor: pointer;
             font-weight: 600;
-            color: var(--text-light);
             transition: all 0.3s ease;
-            border-radius: 3px;
         }
 
         .lang-btn.active {
             background: white;
-            color: var(--text-dark);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #1E6B62;
         }
 
-        /* Tab Navigation */
-        .tab-navigation {
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
             display: flex;
-            gap: 15px;
-            justify-content: center;
+            gap: 0;
             margin-top: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
             flex-wrap: wrap;
         }
 
-        .tab-btn {
+        .nav-tab {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.8);
             padding: 12px 24px;
-            border: 2px solid var(--border-light);
-            background: white;
             cursor: pointer;
-            font-weight: 600;
             font-size: 16px;
-            border-radius: 6px;
+            font-weight: 600;
             transition: all 0.3s ease;
-            color: var(--text-dark);
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
         }
 
-        .tab-btn.home {
-            border-color: var(--text-dark);
-            color: var(--text-dark);
-        }
-
-        .tab-btn.eyeworld {
-            border-color: var(--eyeworld-primary);
-            color: var(--eyeworld-primary);
-        }
-
-        .tab-btn.topcare {
-            border-color: var(--topcare-primary);
-            color: var(--topcare-primary);
-        }
-
-        .tab-btn.active {
-            background: var(--text-dark);
+        .nav-tab:hover {
             color: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .tab-btn.eyeworld.active {
-            background: var(--eyeworld-primary);
-            border-color: var(--eyeworld-primary);
-        }
-
-        .tab-btn.topcare.active {
-            background: var(--topcare-primary);
-            border-color: var(--topcare-primary);
+        .nav-tab.active {
+            color: white;
+            border-bottom-color: white;
         }
 
         /* Main Content */
-        .main-container {
+        .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 40px;
         }
 
-        .page {
+        .content-section {
             display: none;
             animation: fadeIn 0.3s ease;
         }
 
-        .page.active {
+        .content-section.active {
             display: block;
         }
 
@@ -161,255 +136,338 @@
             to { opacity: 1; }
         }
 
-        /* Home Page */
-        .hero-section {
-            background: linear-gradient(135deg, var(--eyeworld-primary) 0%, var(--topcare-primary) 100%);
-            color: white;
+        /* Home Page Styles */
+        .hero {
+            background: linear-gradient(135deg, #FAF7F2 0%, #E6F4F2 100%);
             padding: 60px 40px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            font-weight: 400;
-            opacity: 0.95;
-            line-height: 1.6;
-        }
-
-        .introduction-section {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .intro-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-
-        .intro-text {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-
-        /* Logo Download Section */
-        .download-section {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .download-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--text-dark);
-        }
-
-        .download-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .download-item {
-            text-align: center;
-            padding: 30px;
-            background: #F9F9F9;
             border-radius: 8px;
-            border: 2px solid var(--border-light);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            color: #1E6B62;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        /* Brand Assets Section */
+        .assets-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .assets-section h3 {
+            font-size: 28px;
+            color: #1E6B62;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .logo-card {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
             transition: all 0.3s ease;
         }
 
-        .download-item:hover {
-            border-color: var(--eyeworld-primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        .logo-card:hover {
+            border-color: #2EC4A9;
+            box-shadow: 0 4px 12px rgba(46, 196, 169, 0.1);
         }
 
-        .download-item.topcare:hover {
-            border-color: var(--topcare-primary);
-        }
-
-        .logo-preview {
-            height: 120px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-preview img {
-            max-height: 100%;
+        .logo-card img {
             max-width: 100%;
+            height: 120px;
             object-fit: contain;
+            margin-bottom: 20px;
         }
 
-        .download-label {
-            font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 15px;
-            color: var(--text-dark);
+        .logo-card h4 {
+            font-size: 18px;
+            color: #1E6B62;
+            margin-bottom: 10px;
         }
 
         .download-btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: var(--eyeworld-primary);
+            background: #2EC4A9;
             color: white;
-            text-decoration: none;
-            border-radius: 6px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .download-item.topcare .download-btn {
-            background: var(--topcare-primary);
+            margin-top: 15px;
         }
 
         .download-btn:hover {
+            background: #1E6B62;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         /* Creative Gallery */
         .gallery-section {
             background: white;
             padding: 40px;
-            border-radius: 12px;
+            border-radius: 8px;
             margin-bottom: 40px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        .gallery-title {
+        .gallery-section h3 {
             font-size: 28px;
-            font-weight: 700;
+            color: #1E6B62;
             margin-bottom: 30px;
-            color: var(--text-dark);
+            font-weight: 700;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .gallery-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
 
-        .gallery-image {
+        .gallery-item img {
             width: 100%;
-            height: 300px;
+            height: 250px;
             object-fit: cover;
             display: block;
         }
 
         .gallery-overlay {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
+            bottom: 0;
+            background: rgba(30, 107, 98, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
+            opacity: 1;
         }
 
-        .gallery-label {
-            font-weight: 700;
+        .gallery-overlay-text {
+            color: white;
             font-size: 16px;
-            margin-bottom: 8px;
+            font-weight: 600;
+            text-align: center;
         }
 
-        .gallery-description {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        /* Section Styles */
-        .section {
+        /* Brand Pages */
+        .brand-page {
             background: white;
-            border-radius: 12px;
             padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .brand-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #2EC4A9;
+        }
+
+        .brand-header img {
+            max-width: 200px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .brand-info h2 {
+            font-size: 36px;
+            color: #1E6B62;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .brand-info p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Sections */
+        .guideline-section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .guideline-section:last-child {
+            border-bottom: none;
         }
 
         .section-title {
             font-size: 28px;
+            color: #1E6B62;
+            margin-bottom: 20px;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 28px;
+            background: #2EC4A9;
+            border-radius: 2px;
+        }
+
+        .section-content {
+            margin-left: 0;
+        }
+
+        /* Typography Section */
+        .typography-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid var(--border-light);
         }
 
-        .brand-section.eyeworld .section-title {
-            color: var(--eyeworld-primary);
-            border-bottom-color: var(--eyeworld-primary);
-        }
-
-        .brand-section.topcare .section-title {
-            color: var(--topcare-primary);
-            border-bottom-color: var(--topcare-primary);
-        }
-
-        .subsection {
-            margin-bottom: 30px;
-        }
-
-        .subsection-title {
-            font-size: 18px;
+        .typography-column h4 {
+            font-size: 16px;
+            color: #2EC4A9;
             font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
 
-        .subsection-content {
-            font-size: 15px;
-            line-height: 1.8;
-            color: var(--text-light);
+        .font-example {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 4px;
         }
 
-        /* Do/Don't Section */
-        .do-dont {
+        .font-example-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .font-example-text {
+            font-size: 24px;
+            color: #1E6B62;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .font-specs {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+            font-family: monospace;
+        }
+
+        /* Color Palette */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .color-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .color-info {
+            padding: 15px;
+            background: white;
+        }
+
+        .color-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E6B62;
+            margin-bottom: 5px;
+        }
+
+        .color-code {
+            font-size: 12px;
+            color: #999;
+            font-family: monospace;
+            margin-bottom: 3px;
+        }
+
+        .color-usage {
+            font-size: 11px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Do's and Don'ts */
+        .do-dont-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-top: 15px;
+            margin-bottom: 30px;
         }
 
         .do-box, .dont-box {
@@ -419,293 +477,304 @@
         }
 
         .do-box {
-            background: #E8F5E9;
-            border-left-color: #4CAF50;
+            background: #E6F4F2;
+            border-left-color: #2EC4A9;
         }
 
         .dont-box {
-            background: #FFEBEE;
-            border-left-color: #F44336;
+            background: #FFE6E6;
+            border-left-color: #E74C3C;
         }
 
-        .do-label, .dont-label {
+        .do-box h4, .dont-box h4 {
+            font-size: 16px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .do-box h4 {
+            color: #1E6B62;
+        }
+
+        .dont-box h4 {
+            color: #C0392B;
+        }
+
+        .do-box ul, .dont-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .do-box li, .dont-box li {
             font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .do-label {
-            color: #2E7D32;
-        }
-
-        .dont-label {
-            color: #C62828;
-        }
-
-        .do-content, .dont-content {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text-dark);
-        }
-
-        /* Color Palette */
-        .color-palette {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .color-item {
-            text-align: center;
-        }
-
-        .color-box {
-            width: 100%;
-            height: 100px;
-            border-radius: 8px;
             margin-bottom: 10px;
-            border: 1px solid var(--border-light);
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
         }
 
-        .color-name {
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 5px;
+        .do-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2EC4A9;
+            font-weight: 700;
         }
 
-        .color-code {
+        .dont-box li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #E74C3C;
+            font-weight: 700;
+        }
+
+        /* Voice & Tone */
+        .tone-examples {
+            margin-bottom: 30px;
+        }
+
+        .tone-example {
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2EC4A9;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .tone-label {
             font-size: 12px;
-            color: var(--text-light);
-            font-family: monospace;
+            color: #2EC4A9;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
 
-        /* Content Table */
-        .content-table {
+        .tone-text {
+            font-size: 16px;
+            color: #1E6B62;
+            font-weight: 600;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Social Media Guidelines */
+        .platform-guide {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2EC4A9;
+        }
+
+        .platform-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E6B62;
+            margin-bottom: 12px;
+        }
+
+        .platform-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .spec-item {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .spec-label {
+            font-weight: 700;
+            color: #1E6B62;
+        }
+
+        /* Tables */
+        table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-bottom: 30px;
+            font-size: 14px;
         }
 
-        .content-table th {
-            background: #F5F5F5;
+        table th {
+            background: #1E6B62;
+            color: white;
             padding: 15px;
             text-align: left;
             font-weight: 700;
-            border-bottom: 2px solid var(--border-light);
-            font-size: 14px;
         }
 
-        .content-table td {
-            padding: 15px;
-            border-bottom: 1px solid var(--border-light);
-            font-size: 14px;
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
         }
 
-        .content-table tr:hover {
-            background: #FAFAFA;
-        }
-
-        /* Contact Section */
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            padding: 20px;
-            background: #F9F9F9;
-            border-radius: 8px;
-            border-left: 4px solid;
-        }
-
-        .brand-section.eyeworld .contact-item {
-            border-left-color: var(--eyeworld-primary);
-        }
-
-        .brand-section.topcare .contact-item {
-            border-left-color: var(--topcare-primary);
-        }
-
-        .contact-label {
-            font-weight: 700;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-light);
-            margin-bottom: 8px;
-        }
-
-        .contact-value {
-            font-size: 15px;
-            color: var(--text-dark);
-            word-break: break-all;
+        table tr:hover {
+            background: #f9f9f9;
         }
 
         /* Footer */
-        .footer {
-            background: var(--text-dark);
+        footer {
+            background: #1E6B62;
             color: white;
-            text-align: center;
             padding: 30px 40px;
+            text-align: center;
             margin-top: 60px;
             font-size: 14px;
-            border-radius: 12px;
         }
 
-        .footer-text {
+        footer p {
             margin-bottom: 10px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
+            .header-container {
                 flex-direction: column;
                 gap: 15px;
+                padding: 0 20px;
             }
 
-            .tab-navigation {
+            .container {
+                padding: 20px;
+            }
+
+            .typography-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .do-dont-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-header {
                 flex-direction: column;
+                text-align: center;
             }
 
-            .tab-btn {
-                width: 100%;
+            .section-title::before {
+                display: none;
             }
 
-            .do-dont {
-                grid-template-columns: 1fr;
+            .nav-tabs {
+                gap: 5px;
             }
 
-            .section {
-                padding: 20px;
-            }
-
-            .main-container {
-                padding: 20px;
-            }
-
-            .hero-section {
-                padding: 30px 20px;
-            }
-
-            .hero-title {
-                font-size: 28px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            .nav-tab {
+                padding: 10px 15px;
+                font-size: 14px;
             }
         }
 
-        /* Language-specific styles */
-        .ar {
-            direction: rtl;
-            text-align: right;
-            font-family: 'Arabic Typesetting', 'Arial Unicode MS', sans-serif;
-        }
-
-        .en {
-            direction: ltr;
-            text-align: left;
+        html[lang="ar"] .section-title::before {
+            margin-left: auto;
+            margin-right: 0;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <div class="header-content">
-            <div class="header-title" data-en="Eye World Hospital & Top Care Clinics" data-ar="مستشفى عالم العيون وعيادات توب كير">Eye World Hospital & Top Care Clinics</div>
-            <div class="header-controls">
-                <div class="language-toggle">
-                    <button class="lang-btn active" onclick="setLanguage('en')" data-en="English" data-ar="English">English</button>
-                    <button class="lang-btn" onclick="setLanguage('ar')" data-en="العربية" data-ar="العربية">العربية</button>
-                </div>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <h1 id="header-title">Eye World & Top Care Brand Guidelines</h1>
+            </div>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLanguage('en')">English</button>
+                <button class="lang-btn" onclick="setLanguage('ar')">العربية</button>
             </div>
         </div>
-
-        <!-- Tab Navigation -->
-        <div class="tab-navigation">
-            <button class="tab-btn home active" onclick="showPage('home')" data-en="Home" data-ar="الرئيسية">Home</button>
-            <button class="tab-btn eyeworld" onclick="showPage('eyeworld')" data-en="Eye World Hospital" data-ar="مستشفى عالم العيون">Eye World Hospital</button>
-            <button class="tab-btn topcare" onclick="showPage('topcare')" data-en="Top Care Clinics" data-ar="عيادات توب كير">Top Care Clinics</button>
+        <div class="header-container">
+            <nav class="nav-tabs">
+                <button class="nav-tab active" onclick="showSection('home')"><span class="en-text">Home</span><span class="ar-text" style="display:none;">الرئيسية</span></button>
+                <button class="nav-tab" onclick="showSection('eyeworld')"><span class="en-text">Eye World Hospital</span><span class="ar-text" style="display:none;">مستشفى دنيا العيون</span></button>
+                <button class="nav-tab" onclick="showSection('topcare')"><span class="en-text">Top Care Clinics</span><span class="ar-text" style="display:none;">عيادات توب كير</span></button>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- Main Container -->
-    <div class="main-container">
+    <div class="container">
         <!-- HOME PAGE -->
-        <div class="page active" id="home">
-            <!-- Hero Section -->
-            <div class="hero-section">
-                <div class="hero-title" data-en="Leadership Through Excellence in Healthcare" data-ar="القيادة من خلال التميز في الرعاية الصحية">Leadership Through Excellence in Healthcare</div>
-                <div class="hero-subtitle" data-en="Delivering comprehensive healthcare solutions through two distinct, purpose-built brands" data-ar="تقديم حلول الرعاية الصحية الشاملة من خلال علامتين تجاريتين مميزتين">Delivering comprehensive healthcare solutions through two distinct, purpose-built brands</div>
+        <div id="home" class="content-section active">
+            <div class="hero">
+                <h2 class="en-text">Leadership Through Excellence in Healthcare</h2>
+                <h2 class="ar-text" style="display:none;">القيادة من خلال التميز في الرعاية الصحية</h2>
+                <p class="en-text">Since 2004, Eye World Hospital has established itself as a pioneering force in ophthalmology, delivering exceptional medical care to thousands of patients. Today, Eye World Hospital and Top Care Clinics represent a comprehensive healthcare ecosystem. Our success is built on three pillars: clinical expertise, patient-centered care, and continuous innovation.</p>
+                <p class="ar-text" style="display:none;">منذ عام 2004، أثبتت مستشفى دنيا العيون نفسها كقوة رائدة في طب العيون، حيث قدمت رعاية طبية استثنائية لآلاف المرضى. اليوم، تمثل مستشفى دنيا العيون وعيادات توب كير نظاماً صحياً شاملاً. يقوم نجاحنا على ثلاث ركائز: الخبرة السريرية والرعاية المتمركزة حول المريض والابتكار المستمر.</p>
             </div>
 
-            <!-- Introduction Section -->
-            <div class="introduction-section">
-                <div class="intro-title" data-en="About Our Organization" data-ar="حول منظمتنا">About Our Organization</div>
-                <div class="intro-text" data-en="Since 2004, Eye World Hospital has established itself as a pioneering force in ophthalmology, delivering exceptional medical care to thousands of patients. Our track record speaks for itself—from groundbreaking surgical procedures to comprehensive diagnostic services, we have consistently set industry standards in eye care excellence." data-ar="منذ عام 2004، أثبتت مستشفى عالم العيون نفسها كقوة رائدة في طب العيون، وتقديم رعاية طبية استثنائية لآلاف المرضى. سجلنا يتحدث عن نفسه - من الإجراءات الجراحية الرائدة إلى الخدمات التشخيصية الشاملة، لقد حددنا باستمرار معايير الصناعة في تميز رعاية العيون.">Since 2004, Eye World Hospital has established itself as a pioneering force in ophthalmology, delivering exceptional medical care to thousands of patients. Our track record speaks for itself—from groundbreaking surgical procedures to comprehensive diagnostic services, we have consistently set industry standards in eye care excellence.</div>
+            <!-- Brand Assets -->
+            <div class="assets-section">
+                <h3 class="en-text">Brand Assets & Downloads</h3>
+                <h3 class="ar-text" style="display:none;">أصول العلامة التجارية والتنزيلات</h3>
                 
-                <div class="intro-text" data-en="Today, Eye World Hospital and Top Care Clinics represent a comprehensive healthcare ecosystem. Eye World Hospital remains Egypt's trusted authority in ophthalmology, while Top Care Clinics extends our commitment to excellence across multiple specialties, offering premium healthcare experiences in dermatology, dental care, and aesthetic medicine." data-ar="اليوم، تمثل مستشفى عالم العيون وعيادات توب كير نظاماً صحياً شاملاً. تبقى مستشفى عالم العيون السلطة الموثوقة في مصر في طب العيون، بينما تمتد عيادات توب كير التزامنا بالتميز عبر تخصصات متعددة، وتقدم تجارب رعاية صحية فاخرة في الأمراض الجلدية والعناية بالأسنان والطب التجميلي.">Today, Eye World Hospital and Top Care Clinics represent a comprehensive healthcare ecosystem. Eye World Hospital remains Egypt's trusted authority in ophthalmology, while Top Care Clinics extends our commitment to excellence across multiple specialties, offering premium healthcare experiences in dermatology, dental care, and aesthetic medicine.</div>
-                
-                <div class="intro-text" data-en="Our success is built on three pillars: clinical expertise, patient-centered care, and continuous innovation. Every achievement reflects our unwavering dedication to transforming lives through world-class medical services." data-ar="يبنى نجاحنا على ثلاث ركائز: الخبرة السريرية والرعاية المركزة على المريض والابتكار المستمر. كل إنجاز يعكس التزامنا الثابت بتحويل الحياة من خلال الخدمات الطبية من الدرجة الأولى.">Our success is built on three pillars: clinical expertise, patient-centered care, and continuous innovation. Every achievement reflects our unwavering dedication to transforming lives through world-class medical services.</div>
-            </div>
-
-            <!-- Logo Download Section -->
-            <div class="download-section">
-                <div class="download-title" data-en="Brand Assets - Download Logos" data-ar="أصول العلامة التجارية - تحميل الشعارات">Brand Assets - Download Logos</div>
-                <div class="download-grid">
-                    <div class="download-item">
-                        <div class="logo-preview">
-                            <img src="https://ik.imagekit.io/weo7pcw8v/Eye_World_Logo.png" alt="Eye World Hospital Logo">
-                        </div>
-                        <div class="download-label" data-en="Eye World Hospital Logo" data-ar="شعار مستشفى عالم العيون">Eye World Hospital Logo</div>
-                        <a href="https://ik.imagekit.io/weo7pcw8v/Eye_World_Logo.png" download class="download-btn" data-en="Download" data-ar="تحميل">Download</a>
+                <div class="logos-grid">
+                    <div class="logo-card">
+                        <img src="https://ik.imagekit.io/weo7pcw8v/Eye_World_Logo.png" alt="Eye World Logo">
+                        <h4 class="en-text">Eye World Hospital</h4>
+                        <h4 class="ar-text" style="display:none;">مستشفى دنيا العيون</h4>
+                        <button class="download-btn" onclick="downloadLogo('https://ik.imagekit.io/weo7pcw8v/Eye_World_Logo.png', 'Eye_World_Logo.png')">
+                            <span class="en-text">Download</span>
+                            <span class="ar-text" style="display:none;">تحميل</span>
+                        </button>
                     </div>
-                    <div class="download-item topcare">
-                        <div class="logo-preview">
-                            <img src="https://ik.imagekit.io/weo7pcw8v/Top_Care_Logo.png" alt="Top Care Clinics Logo">
-                        </div>
-                        <div class="download-label" data-en="Top Care Clinics Logo" data-ar="شعار عيادات توب كير">Top Care Clinics Logo</div>
-                        <a href="https://ik.imagekit.io/weo7pcw8v/Top_Care_Logo.png" download class="download-btn" data-en="Download" data-ar="تحميل">Download</a>
+                    <div class="logo-card">
+                        <img src="https://ik.imagekit.io/weo7pcw8v/Top_Care_Logo.png" alt="Top Care Logo">
+                        <h4 class="en-text">Top Care Clinics</h4>
+                        <h4 class="ar-text" style="display:none;">عيادات توب كير</h4>
+                        <button class="download-btn" onclick="downloadLogo('https://ik.imagekit.io/weo7pcw8v/Top_Care_Logo.png', 'Top_Care_Logo.png')">
+                            <span class="en-text">Download</span>
+                            <span class="ar-text" style="display:none;">تحميل</span>
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Creative Gallery Section -->
+            <!-- Creative Gallery -->
             <div class="gallery-section">
-                <div class="gallery-title" data-en="Creative Samples" data-ar="عينات إبداعية">Creative Samples</div>
+                <h3 class="en-text">Creative Examples</h3>
+                <h3 class="ar-text" style="display:none;">أمثلة إبداعية</h3>
+                
                 <div class="gallery-grid">
-                    <div class="gallery-item" onclick="showPage('eyeworld')">
-                        <img src="https://ik.imagekit.io/weo7pcw8v/image(2).png" alt="Eye World Creative Sample 1" class="gallery-image">
+                    <div class="gallery-item" onclick="showSection('eyeworld')">
+                        <img src="https://ik.imagekit.io/weo7pcw8v/image(2).png" alt="Eye World Creative">
                         <div class="gallery-overlay">
-                            <div class="gallery-label" data-en="Eye World Sample 1" data-ar="عينة عالم العيون 1">Eye World Sample 1</div>
-                            <div class="gallery-description" data-en="Click to view Eye World guidelines" data-ar="انقر لعرض إرشادات عالم العيون">Click to view Eye World guidelines</div>
+                            <div class="gallery-overlay-text">
+                                <span class="en-text">View Eye World Guidelines</span>
+                                <span class="ar-text" style="display:none;">عرض إرشادات دنيا العيون</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="showPage('eyeworld')">
-                        <img src="https://ik.imagekit.io/weo7pcw8v/image.png" alt="Eye World Creative Sample 2" class="gallery-image">
+                    <div class="gallery-item" onclick="showSection('eyeworld')">
+                        <img src="https://ik.imagekit.io/weo7pcw8v/image.png" alt="Eye World Creative">
                         <div class="gallery-overlay">
-                            <div class="gallery-label" data-en="Eye World Sample 2" data-ar="عينة عالم العيون 2">Eye World Sample 2</div>
-                            <div class="gallery-description" data-en="Click to view Eye World guidelines" data-ar="انقر لعرض إرشادات عالم العيون">Click to view Eye World guidelines</div>
+                            <div class="gallery-overlay-text">
+                                <span class="en-text">View Eye World Guidelines</span>
+                                <span class="ar-text" style="display:none;">عرض إرشادات دنيا العيون</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="showPage('topcare')">
-                        <img src="https://ik.imagekit.io/weo7pcw8v/image(1).png" alt="Top Care Creative Sample 1" class="gallery-image">
+                    <div class="gallery-item" onclick="showSection('topcare')">
+                        <img src="https://ik.imagekit.io/weo7pcw8v/image(1).png" alt="Top Care Creative">
                         <div class="gallery-overlay">
-                            <div class="gallery-label" data-en="Top Care Sample 1" data-ar="عينة توب كير 1">Top Care Sample 1</div>
-                            <div class="gallery-description" data-en="Click to view Top Care guidelines" data-ar="انقر لعرض إرشادات توب كير">Click to view Top Care guidelines</div>
+                            <div class="gallery-overlay-text">
+                                <span class="en-text">View Top Care Guidelines</span>
+                                <span class="ar-text" style="display:none;">عرض إرشادات توب كير</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="showPage('topcare')">
-                        <img src="https://ik.imagekit.io/weo7pcw8v/image(3).png" alt="Top Care Creative Sample 2" class="gallery-image">
+                    <div class="gallery-item" onclick="showSection('topcare')">
+                        <img src="https://ik.imagekit.io/weo7pcw8v/image(3).png" alt="Top Care Creative">
                         <div class="gallery-overlay">
-                            <div class="gallery-label" data-en="Top Care Sample 2" data-ar="عينة توب كير 2">Top Care Sample 2</div>
-                            <div class="gallery-description" data-en="Click to view Top Care guidelines" data-ar="انقر لعرض إرشادات توب كير">Click to view Top Care guidelines</div>
+                            <div class="gallery-overlay-text">
+                                <span class="en-text">View Top Care Guidelines</span>
+                                <span class="ar-text" style="display:none;">عرض إرشادات توب كير</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -713,227 +782,426 @@
         </div>
 
         <!-- EYE WORLD HOSPITAL PAGE -->
-        <div class="page" id="eyeworld">
-            <div class="brand-section eyeworld">
-                <!-- Brand Overview -->
-                <div class="section">
-                    <div class="section-title" data-en="Brand Overview" data-ar="نظرة عامة على العلامة التجارية">Brand Overview</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Strategic Positioning" data-ar="الموضع الاستراتيجي">Strategic Positioning</div>
-                        <div class="subsection-content" data-en="Eye World Hospital is the clinical authority brand, specializing exclusively in ophthalmology. We speak with confidence, clarity, and evidence-led professionalism. Our positioning emphasizes expertise, trust, advanced technology, and patient safety. Target audience: B-level patients seeking specialized eye care from experienced professionals." data-ar="مستشفى عالم العيون هي علامة السلطة السريرية، المتخصصة حصراً في طب العيون. نتحدث بثقة ووضوح واحترافية قائمة على الأدلة. يؤكد موضعنا على الخبرة والثقة والتكنولوجيا المتقدمة وسلامة المريض. الجمهور المستهدف: مرضى المستوى B الذين يسعون للحصول على رعاية عيون متخصصة من محترفين ذوي خبرة.">Eye World Hospital is the clinical authority brand, specializing exclusively in ophthalmology. We speak with confidence, clarity, and evidence-led professionalism. Our positioning emphasizes expertise, trust, advanced technology, and patient safety. Target audience: B-level patients seeking specialized eye care from experienced professionals.</div>
-                    </div>
-
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Key Differentiators" data-ar="المميزات الرئيسية">Key Differentiators</div>
-                        <div class="subsection-content" data-en="• Ophthalmology specialization and expertise
-• Senior leadership and Dr. Ihab's reputation
-• Advanced diagnostic technology
-• Conference and research credibility
-• Proven patient trust and scale" data-ar="• التخصص والخبرة في طب العيون
-• القيادة العليا وسمعة د. إيهاب
-• تكنولوجيا التشخيص المتقدمة
-• مصداقية المؤتمرات والبحث
-• ثقة المريض والحجم المثبت">• Ophthalmology specialization and expertise
-• Senior leadership and Dr. Ihab's reputation
-• Advanced diagnostic technology
-• Conference and research credibility
-• Proven patient trust and scale</div>
+        <div id="eyeworld" class="content-section">
+            <div class="brand-page">
+                <div class="brand-header">
+                    <img src="https://ik.imagekit.io/weo7pcw8v/Eye_World_Logo.png" alt="Eye World Logo">
+                    <div class="brand-info">
+                        <h2 class="en-text">Eye World Hospital</h2>
+                        <h2 class="ar-text" style="display:none;">مستشفى دنيا العيون</h2>
+                        <p class="en-text">Trusted Eye Care for Generations - Dedicated to vision excellence since 2004. GAHAR Accredited 2024.</p>
+                        <p class="ar-text" style="display:none;">خبرة طبية تثق بها - مكرسة لتحقيق التميز البصري منذ عام 2004. معتمدة من جاهر 2024.</p>
                     </div>
                 </div>
 
-                <!-- Brand Personality -->
-                <div class="section">
-                    <div class="section-title" data-en="Brand Personality & Tone of Voice" data-ar="شخصية العلامة التجارية ونبرة الصوت">Brand Personality & Tone of Voice</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Personality Traits" data-ar="سمات الشخصية">Personality Traits</div>
-                        <div class="subsection-content" data-en="Confident • Expert • Reassuring • Direct • Responsible" data-ar="واثق • خبير • مطمئن • مباشر • مسؤول">Confident • Expert • Reassuring • Direct • Responsible</div>
-                    </div>
-
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Do's & Don'ts" data-ar="يجب أن تفعل ولا تفعل">Do's & Don'ts</div>
-                        <div class="do-dont">
+                <!-- Typography Section -->
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Typography System</span>
+                        <span class="ar-text" style="display:none;">نظام الطباعة</span>
+                    </h3>
+                    <div class="section-content">
+                        <div class="typography-grid">
+                            <div class="typography-column">
+                                <h4 class="en-text">Arabic Primary Font</h4>
+                                <h4 class="ar-text" style="display:none;">الخط العربي الأساسي</h4>
+                                <div class="font-example">
+                                    <div class="font-example-label">Display / 28pt Bold</div>
+                                    <div class="font-example-text" style="font-family: 'Noto Naskh Arabic', serif;">عرض</div>
+                                    <div class="font-specs">Noto Naskh Arabic • Bold 700</div>
+                                </div>
+                                <div class="font-example">
+                                    <div class="font-example-label">Heading / 18pt Bold</div>
+                                    <div class="font-example-text" style="font-family: 'Noto Naskh Arabic', serif; font-size: 18px;">عنوان</div>
+                                    <div class="font-specs">Noto Naskh Arabic • Bold 700</div>
+                                </div>
+                                <div class="font-example">
+                                    <div class="font-example-label">Body / 10pt Regular</div>
+                                    <div class="font-example-text" style="font-family: 'Noto Naskh Arabic', serif; font-size: 14px;">نص الجسم الرئيسي</div>
+                                    <div class="font-specs">Noto Naskh Arabic • Regular 400</div>
+                                </div>
+                            </div>
+                            <div class="typography-column">
+                                <h4 class="en-text">English Secondary Font</h4>
+                                <h4 class="ar-text" style="display:none;">الخط الإنجليزي الثانوي</h4>
+                                <div class="font-example">
+                                    <div class="font-example-label">Display / 22pt ExtraBold</div>
+                                    <div class="font-example-text" style="font-family: 'Noto Sans', sans-serif;">EYE WORLD</div>
+                                    <div class="font-specs">Noto Sans • ExtraBold 800</div>
+                                </div>
+                                <div class="font-example">
+                                    <div class="font-example-label">Subheading / 11pt SemiBold</div>
+                                    <div class="font-example-text" style="font-family: 'Noto Sans', sans-serif; font-size: 14px; font-weight: 600;">HOSPITAL · DOKKI · GIZA</div>
+                                    <div class="font-specs">Noto Sans • SemiBold 600</div>
+                                </div>
+                                <div class="font-example">
+                                    <div class="font-example-label">Body / 9pt Regular</div>
+                                    <div class="font-example-text" style="font-family: 'Noto Sans', sans-serif; font-size: 14px;">Dedicated to vision excellence since 2004</div>
+                                    <div class="font-specs">Noto Sans • Regular 400</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="do-dont-grid">
                             <div class="do-box">
-                                <div class="do-label" data-en="✓ DO" data-ar="✓ يجب">✓ DO</div>
-                                <div class="do-content" data-en="'Advanced ophthalmology care with experienced specialists.'
-'Clear answers, accurate diagnosis, and modern treatment pathways.'" data-ar="'رعاية طب العيون المتقدمة مع متخصصين ذوي خبرة.'
-'إجابات واضحة وتشخيص دقيق ومسارات علاج حديثة.'">"Advanced ophthalmology care with experienced specialists."
-"Clear answers, accurate diagnosis, and modern treatment pathways."</div>
+                                <h4>✓ Typography Rules</h4>
+                                <ul>
+                                    <li class="en-text">Arabic text always appears first and above English</li>
+                                    <li class="en-text">Never use fonts below 8pt in print materials</li>
+                                    <li class="en-text">Minimum body text: 10pt in print, 12px digital</li>
+                                    <li class="en-text">All caps for English labels and categories only</li>
+                                    <li class="en-text">Maintain consistent line height: 1.6 for body</li>
+                                </ul>
                             </div>
                             <div class="dont-box">
-                                <div class="dont-label" data-en="✗ DON'T" data-ar="✗ لا تفعل">✗ DON'T</div>
-                                <div class="dont-content" data-en="'The best ever.'
-'Guaranteed perfect result.'
-'Limited time miracle treatment.'" data-ar="'الأفضل على الإطلاق.'
-'نتيجة مضمونة مثالية.'
-'علاج معجزة محدود الوقت.'">"The best ever."
-"Guaranteed perfect result."
-"Limited time miracle treatment."</div>
+                                <h4>✗ Typography Forbidden</h4>
+                                <ul>
+                                    <li class="en-text">Do not mix fonts within same hierarchy level</li>
+                                    <li class="en-text">Do not use decorative fonts for medical content</li>
+                                    <li class="en-text">Do not apply effects (shadow, outline) to text</li>
+                                    <li class="en-text">Do not use fonts below minimum sizes</li>
+                                    <li class="en-text">Do not mix English and Arabic on same line</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Visual Identity -->
-                <div class="section">
-                    <div class="section-title" data-en="Visual Identity System" data-ar="نظام الهوية البصرية">Visual Identity System</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Color Palette" data-ar="لوحة الألوان">Color Palette</div>
-                        <div class="color-palette">
-                            <div class="color-item">
-                                <div class="color-box" style="background: #1A9B8E;"></div>
-                                <div class="color-name" data-en="Primary Teal" data-ar="الأزرق الأساسي">Primary Teal</div>
-                                <div class="color-code">#1A9B8E</div>
+                <!-- Color Palette -->
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Color Palette</span>
+                        <span class="ar-text" style="display:none;">لوحة الألوان</span>
+                    </h3>
+                    <div class="section-content">
+                        <p class="en-text" style="margin-bottom: 20px;">Eye World's color palette conveys clinical authority, trust, and precision through teal tones—reflecting expertise, clarity, and the depth of eye care excellence.</p>
+                        <p class="ar-text" style="display:none; margin-bottom: 20px;">تعكس لوحة ألوان دنيا العيون السلطة السريرية والثقة والدقة من خلال درجات اللون الأخضر المائي - مما يعكس الخبرة والوضوح وعمق التميز في رعاية العيون.</p>
+                        
+                        <div class="color-grid">
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #2EC4A9;">#2EC4A9</div>
+                                <div class="color-info">
+                                    <div class="color-name">Primary Teal</div>
+                                    <div class="color-code">R:46 G:196 B:169</div>
+                                    <div class="color-usage">Primary brand color, buttons, accents</div>
+                                </div>
                             </div>
-                            <div class="color-item">
-                                <div class="color-box" style="background: #0F6B62;"></div>
-                                <div class="color-name" data-en="Deep Teal" data-ar="الأزرق الداكن">Deep Teal</div>
-                                <div class="color-code">#0F6B62</div>
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #1E6B62;">#1E6B62</div>
+                                <div class="color-info">
+                                    <div class="color-name">Deep Teal</div>
+                                    <div class="color-code">R:30 G:107 B:98</div>
+                                    <div class="color-usage">Headers, dark backgrounds, emphasis</div>
+                                </div>
                             </div>
-                            <div class="color-item">
-                                <div class="color-box" style="background: #E8F7F5;"></div>
-                                <div class="color-name" data-en="Pale Teal" data-ar="الأزرق الفاتح">Pale Teal</div>
-                                <div class="color-code">#E8F7F5</div>
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #0A9488;">#0A9488</div>
+                                <div class="color-info">
+                                    <div class="color-name">Mid Teal</div>
+                                    <div class="color-code">R:10 G:148 B:136</div>
+                                    <div class="color-usage">Secondary accents, hover states</div>
+                                </div>
                             </div>
-                            <div class="color-item">
-                                <div class="color-box" style="background: #1A1A1A;"></div>
-                                <div class="color-name" data-en="Night Black" data-ar="أسود الليل">Night Black</div>
-                                <div class="color-code">#1A1A1A</div>
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #04080F; color: white;">#04080F</div>
+                                <div class="color-info">
+                                    <div class="color-name">Night Black</div>
+                                    <div class="color-code">R:4 G:8 B:15</div>
+                                    <div class="color-usage">Primary background, promotional materials</div>
+                                </div>
+                            </div>
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #E6F4F2;">#E6F4F2</div>
+                                <div class="color-info">
+                                    <div class="color-name">Pale Teal</div>
+                                    <div class="color-code">R:230 G:244 B:242</div>
+                                    <div class="color-usage">Light backgrounds, highlights</div>
+                                </div>
+                            </div>
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #FFFFFF; border: 1px solid #e0e0e0;">#FFFFFF</div>
+                                <div class="color-info">
+                                    <div class="color-name">Pure White</div>
+                                    <div class="color-code">R:255 G:255 B:255</div>
+                                    <div class="color-usage">Text on dark, clean backgrounds</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="do-dont-grid">
+                            <div class="do-box">
+                                <h4>✓ Color Usage Rules</h4>
+                                <ul>
+                                    <li class="en-text">Primary background: Night Black for promotional materials</li>
+                                    <li class="en-text">Use Primary Teal for all CTAs and buttons</li>
+                                    <li class="en-text">Maintain WCAG AA contrast ratios (4.5:1 minimum)</li>
+                                    <li class="en-text">Use Pale Teal for background highlights</li>
+                                    <li class="en-text">Light Teal text on Dark, Dark Teal on Pale</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>✗ Color Forbidden</h4>
+                                <ul>
+                                    <li class="en-text">Do not alter or desaturate brand colors</li>
+                                    <li class="en-text">Do not use colors without sufficient contrast</li>
+                                    <li class="en-text">Do not apply gradients to brand colors</li>
+                                    <li class="en-text">Do not use teal on busy patterned backgrounds</li>
+                                    <li class="en-text">Do not mix with corporate colors from other brands</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Logo Usage" data-ar="استخدام الشعار">Logo Usage</div>
-                        <div class="subsection-content" data-en="• Always maintain clear space around logo
-• Minimum size: 80px width for digital
-• Approved backgrounds: White, teal, or light backgrounds
-• Never distort, rotate, or alter logo proportions
-• Never place on competing visual elements" data-ar="• الحفاظ دائماً على مساحة واضحة حول الشعار
-• الحد الأدنى للحجم: عرض 80 بكسل للرقمية
-• الخلفيات المعتمدة: خلفيات بيضاء أو زرقاء أو فاتحة
-• لا تشوه أو تدوّر أو تغيّر نسب الشعار
-• لا تضع على عناصر بصرية متنافسة">• Always maintain clear space around logo
-• Minimum size: 80px width for digital
-• Approved backgrounds: White, teal, or light backgrounds
-• Never distort, rotate, or alter logo proportions
-• Never place on competing visual elements</div>
-                    </div>
                 </div>
 
-                <!-- Photography & Video -->
-                <div class="section">
-                    <div class="section-title" data-en="Photography & Video Standards" data-ar="معايير التصوير والفيديو">Photography & Video Standards</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Visual Principle" data-ar="المبدأ البصري">Visual Principle</div>
-                        <div class="subsection-content" data-en="Clinical authority with human reassurance. Show real doctors, real patients (with consent), natural expressions, clean clinical spaces, and cool teal grading." data-ar="السلطة السريرية مع الطمأنينة الإنسانية. أظهر أطباء حقيقيين ومرضى حقيقيين (بموافقة)، تعبيرات طبيعية، مساحات سريرية نظيفة، وتدرج أزرق بارد.">Clinical authority with human reassurance. Show real doctors, real patients (with consent), natural expressions, clean clinical spaces, and cool teal grading.</div>
-                    </div>
-
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Approved Styles" data-ar="الأنماط المعتمدة">Approved Styles</div>
-                        <div class="subsection-content" data-en="✓ Real doctors and medical professionals
-✓ Real patients with explicit consent
-✓ Natural, authentic expressions
-✓ Clean, modern clinical environments
-✓ Professional lighting with cool tones
-✓ High-resolution imagery (24MP minimum)" data-ar="✓ أطباء حقيقيون ومتخصصون طبيون
-✓ مرضى حقيقيون بموافقة صريحة
-✓ تعبيرات طبيعية وأصلية
-✓ بيئات سريرية نظيفة وحديثة
-✓ إضاءة احترافية بنبرات باردة
-✓ صور عالية الدقة (24 ميجابكسل على الأقل)">✓ Real doctors and medical professionals
-✓ Real patients with explicit consent
-✓ Natural, authentic expressions
-✓ Clean, modern clinical environments
-✓ Professional lighting with cool tones
-✓ High-resolution imagery (24MP minimum)</div>
-                    </div>
-                </div>
-
-                <!-- Content Strategy -->
-                <div class="section">
-                    <div class="section-title" data-en="Content Strategy" data-ar="استراتيجية المحتوى">Content Strategy</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Content Pillars" data-ar="أعمدة المحتوى">Content Pillars</div>
-                        <table class="content-table">
-                            <thead>
-                                <tr>
-                                    <th data-en="Content Pillar" data-ar="عمود المحتوى">Content Pillar</th>
-                                    <th data-en="Percentage" data-ar="النسبة المئوية">Percentage</th>
-                                    <th data-en="Description" data-ar="الوصف">Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-en="Education" data-ar="التعليم">Education</td>
-                                    <td>30%</td>
-                                    <td data-en="Eye health tips, procedure explanations, myth-busting" data-ar="نصائح صحة العيون، شروحات الإجراءات، تفنيد الخرافات">Eye health tips, procedure explanations, myth-busting</td>
-                                </tr>
-                                <tr>
-                                    <td data-en="Expertise & Authority" data-ar="الخبرة والسلطة">Expertise & Authority</td>
-                                    <td>25%</td>
-                                    <td data-en="Doctor profiles, research, conference presentations" data-ar="ملفات الأطباء، البحث، عروض المؤتمرات">Doctor profiles, research, conference presentations</td>
-                                </tr>
-                                <tr>
-                                    <td data-en="Conversion / Services" data-ar="التحويل / الخدمات">Conversion / Services</td>
-                                    <td>20%</td>
-                                    <td data-en="Service offerings, booking information, packages" data-ar="عروض الخدمات، معلومات الحجز، الحزم">Service offerings, booking information, packages</td>
-                                </tr>
-                                <tr>
-                                    <td data-en="Patient Experience" data-ar="تجربة المريض">Patient Experience</td>
-                                    <td>15%</td>
-                                    <td data-en="Patient stories, testimonials, success stories" data-ar="قصص المرضى، الشهادات، قصص النجاح">Patient stories, testimonials, success stories</td>
-                                </tr>
-                                <tr>
-                                    <td data-en="Events & Reputation" data-ar="الأحداث والسمعة">Events & Reputation</td>
-                                    <td>10%</td>
-                                    <td data-en="Awards, milestones, community involvement" data-ar="الجوائز والإنجازات والمشاركة المجتمعية">Awards, milestones, community involvement</td>
-                                </tr>
-                            </tbody>
+                <!-- Logo Usage -->
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Logo Usage Rules</span>
+                        <span class="ar-text" style="display:none;">قواعد استخدام الشعار</span>
+                    </h3>
+                    <div class="section-content">
+                        <table>
+                            <tr>
+                                <th class="en-text">Specification</th>
+                                <th class="en-text">Requirement</th>
+                                <th class="ar-text" style="display:none;">المواصفة</th>
+                                <th class="ar-text" style="display:none;">المتطلب</th>
+                            </tr>
+                            <tr>
+                                <td class="en-text">Clear Space</td>
+                                <td class="en-text">Height of inner eye symbol on all sides</td>
+                                <td class="ar-text" style="display:none;">المسافة الواضحة</td>
+                                <td class="ar-text" style="display:none;">ارتفاع رمز العين الداخلي على جميع الجوانب</td>
+                            </tr>
+                            <tr>
+                                <td class="en-text">Print Minimum</td>
+                                <td class="en-text">25mm width</td>
+                                <td class="ar-text" style="display:none;">الحد الأدنى للطباعة</td>
+                                <td class="ar-text" style="display:none;">عرض 25 ملم</td>
+                            </tr>
+                            <tr>
+                                <td class="en-text">Digital Minimum</td>
+                                <td class="en-text">80px width</td>
+                                <td class="ar-text" style="display:none;">الحد الأدنى الرقمي</td>
+                                <td class="ar-text" style="display:none;">عرض 80 بكسل</td>
+                            </tr>
+                            <tr>
+                                <td class="en-text">Approved Backgrounds</td>
+                                <td class="en-text">Dark (primary), Teal, Light, White</td>
+                                <td class="ar-text" style="display:none;">الخلفيات المعتمدة</td>
+                                <td class="ar-text" style="display:none;">داكن (أساسي)، أخضر مائي، فاتح، أبيض</td>
+                            </tr>
                         </table>
+
+                        <div class="do-dont-grid">
+                            <div class="do-box">
+                                <h4>✓ Approved Logo Usage</h4>
+                                <ul>
+                                    <li class="en-text">Use on clinical backgrounds and billboards</li>
+                                    <li class="en-text">Maintain original proportions without distortion</li>
+                                    <li class="en-text">Ensure minimum clear space on all sides</li>
+                                    <li class="en-text">Use on approved background colors only</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>✗ NOT ALLOWED</h4>
+                                <ul>
+                                    <li class="en-text">Do not change logo colors or apply effects</li>
+                                    <li class="en-text">Do not place on busy or patterned backgrounds</li>
+                                    <li class="en-text">Do not rotate, flip, or distort the logo</li>
+                                    <li class="en-text">Do not use below minimum size specifications</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voice & Tone -->
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Voice & Tone</span>
+                        <span class="ar-text" style="display:none;">الصوت والنبرة</span>
+                    </h3>
+                    <div class="section-content">
+                        <p class="en-text" style="margin-bottom: 20px;">Eye World speaks with clinical authority, confidence, and expertise. Our tone is professional yet approachable, conveying the depth of our medical knowledge while remaining accessible to patients of all backgrounds.</p>
+                        <p class="ar-text" style="display:none; margin-bottom: 20px;">تتحدث دنيا العيون بسلطة سريرية وثقة وخبرة. نبرتنا احترافية ومع ذلك يمكن الوصول إليها، حيث تنقل عمق معرفتنا الطبية مع البقاء في متناول المرضى من جميع الخلفيات.</p>
+                        
+                        <div class="tone-examples">
+                            <div class="tone-example">
+                                <div class="tone-label">Clinical Authority</div>
+                                <div class="tone-text">"Advanced diagnostic technology meets decades of surgical expertise."</div>
+                            </div>
+                            <div class="tone-example">
+                                <div class="tone-label">Patient Trust</div>
+                                <div class="tone-text">"Your vision is our mission. GAHAR accredited excellence since 2004."</div>
+                            </div>
+                            <div class="tone-example">
+                                <div class="tone-label">Expertise & Precision</div>
+                                <div class="tone-text">"Every procedure guided by precision, every patient treated with care."</div>
+                            </div>
+                        </div>
+
+                        <div class="do-dont-grid">
+                            <div class="do-box">
+                                <h4>✓ Right Tone</h4>
+                                <ul>
+                                    <li class="en-text">Use medical terminology accurately and confidently</li>
+                                    <li class="en-text">Emphasize clinical expertise and credentials</li>
+                                    <li class="en-text">Focus on patient outcomes and safety</li>
+                                    <li class="en-text">Use Dr. Ihab's reputation as authority anchor</li>
+                                    <li class="en-text">Highlight GAHAR accreditation and certifications</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>✗ Avoid - Forbidden Tone</h4>
+                                <ul>
+                                    <li class="en-text">Do not use exaggerated medical claims</li>
+                                    <li class="en-text">Do not make guarantees about medical outcomes</li>
+                                    <li class="en-text">Do not use casual or slang language</li>
+                                    <li class="en-text">Do not compare with competitors directly</li>
+                                    <li class="en-text">Do not use aggressive sales language</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Social Media Guidelines -->
-                <div class="section">
-                    <div class="section-title" data-en="Social Media Guidelines" data-ar="إرشادات وسائل التواصل الاجتماعي">Social Media Guidelines</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Posting Frequency" data-ar="تكرار النشر">Posting Frequency</div>
-                        <div class="subsection-content" data-en="• Facebook Feed: 3–4 posts per week
-• Reels: 2 per week
-• Stories: Daily" data-ar="• موجز Facebook: 3-4 منشورات في الأسبوع
-• Reels: منشوران في الأسبوع
-• Stories: يومياً">• Facebook Feed: 3–4 posts per week
-• Reels: 2 per week
-• Stories: Daily</div>
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Social Media Guidelines</span>
+                        <span class="ar-text" style="display:none;">إرشادات وسائل التواصل الاجتماعي</span>
+                    </h3>
+                    <div class="section-content">
+                        <p class="en-text" style="margin-bottom: 20px;">Eye World maintains a professional, educational presence across social platforms. Content focuses on clinical expertise, patient education, and building trust through consistent, quality messaging.</p>
+                        <p class="ar-text" style="display:none; margin-bottom: 20px;">تحافظ دنيا العيون على حضور احترافي وتعليمي عبر منصات التواصل الاجتماعي. يركز المحتوى على الخبرة السريرية وتثقيف المريض وبناء الثقة من خلال الرسائل المتسقة والعالية الجودة.</p>
+                        
+                        <div class="platform-guide">
+                            <div class="platform-name">Facebook</div>
+                            <div class="platform-specs">
+                                <div class="spec-item"><span class="spec-label">Posting Frequency:</span> 4-5 times per week</div>
+                                <div class="spec-item"><span class="spec-label">Content Mix:</span> 30% Education, 25% Expertise, 20% Conversion, 15% Community, 10% Behind-the-scenes</div>
+                                <div class="spec-item"><span class="spec-label">Caption Length:</span> 150-250 characters optimal</div>
+                                <div class="spec-item"><span class="spec-label">Hashtags:</span> 3-5 relevant hashtags, Arabic and English</div>
+                            </div>
+                        </div>
+
+                        <div class="platform-guide">
+                            <div class="platform-name">Instagram</div>
+                            <div class="platform-specs">
+                                <div class="spec-item"><span class="spec-label">Posting Frequency:</span> 3-4 times per week</div>
+                                <div class="spec-item"><span class="spec-label">Content Mix:</span> 35% Education, 25% Expertise, 20% Visual storytelling, 20% Patient outcomes</div>
+                                <div class="spec-item"><span class="spec-label">Caption Length:</span> 100-150 characters for main text</div>
+                                <div class="spec-item"><span class="spec-label">Hashtags:</span> 15-25 hashtags (use first comment for additional hashtags)</div>
+                            </div>
+                        </div>
+
+                        <div class="platform-guide">
+                            <div class="platform-name">YouTube</div>
+                            <div class="platform-specs">
+                                <div class="spec-item"><span class="spec-label">Video Length:</span> 3-8 minutes optimal for educational content</div>
+                                <div class="spec-item"><span class="spec-label">Upload Frequency:</span> 2 videos per month minimum</div>
+                                <div class="spec-item"><span class="spec-label">Content Types:</span> Patient testimonials, surgical explanations, Dr. Ihab interviews, eye health tips</div>
+                                <div class="spec-item"><span class="spec-label">Subtitles:</span> Arabic and English subtitles mandatory for all videos</div>
+                            </div>
+                        </div>
+
+                        <div class="platform-guide">
+                            <div class="platform-name">WhatsApp Business</div>
+                            <div class="platform-specs">
+                                <div class="spec-item"><span class="spec-label">Response Time:</span> Within 2 hours during business hours</div>
+                                <div class="spec-item"><span class="spec-label">Message Format:</span> Professional, bilingual support</div>
+                                <div class="spec-item"><span class="spec-label">Content:</span> Appointment confirmations, health tips, special offers</div>
+                                <div class="spec-item"><span class="spec-label">Frequency:</span> Maximum 2-3 messages per week to avoid spam</div>
+                            </div>
+                        </div>
+
+                        <div class="do-dont-grid">
+                            <div class="do-box">
+                                <h4>✓ Social Media Best Practices</h4>
+                                <ul>
+                                    <li class="en-text">Always include Arabic content first, English second</li>
+                                    <li class="en-text">Use before/after photos with proper patient consent</li>
+                                    <li class="en-text">Tag location and use relevant medical hashtags</li>
+                                    <li class="en-text">Respond to comments within 24 hours</li>
+                                    <li class="en-text">Include clear CTAs (Book Now, Learn More, Contact)</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>✗ Social Media Forbidden</h4>
+                                <ul>
+                                    <li class="en-text">Do not post patient photos without written consent</li>
+                                    <li class="en-text">Do not make medical guarantees or promises</li>
+                                    <li class="en-text">Do not engage in negative competitor commentary</li>
+                                    <li class="en-text">Do not post graphic surgical images without warning</li>
+                                    <li class="en-text">Do not share unverified medical information</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photography Guidelines -->
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Photography & Visual Standards</span>
+                        <span class="ar-text" style="display:none;">معايير التصوير والمرئيات</span>
+                    </h3>
+                    <div class="section-content">
+                        <p class="en-text" style="margin-bottom: 20px;">Eye World photography emphasizes clinical precision, patient safety, and professional expertise. All imagery must convey trust, competence, and the human element of care.</p>
+                        <p class="ar-text" style="display:none; margin-bottom: 20px;">يؤكد التصوير الفوتوغرافي في دنيا العيون على الدقة السريرية وسلامة المريض والخبرة المهنية. يجب أن تنقل جميع الصور الثقة والكفاءة والعنصر الإنساني للرعاية.</p>
+                        
+                        <div class="do-dont-grid">
+                            <div class="do-box">
+                                <h4>✓ Photography Approved</h4>
+                                <ul>
+                                    <li class="en-text">Real doctors and medical staff in professional settings</li>
+                                    <li class="en-text">Modern, well-lit clinical environments</li>
+                                    <li class="en-text">Advanced medical equipment and technology</li>
+                                    <li class="en-text">Patient testimonials with written consent</li>
+                                    <li class="en-text">Natural lighting, warm color tones</li>
+                                    <li class="en-text">Before/after photos with proper disclaimers</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>✗ Photography Forbidden</h4>
+                                <ul>
+                                    <li class="en-text">Do not use stock photos of generic patients</li>
+                                    <li class="en-text">Do not show graphic surgical procedures</li>
+                                    <li class="en-text">Do not use patient photos without consent</li>
+                                    <li class="en-text">Do not show outdated medical equipment</li>
+                                    <li class="en-text">Do not use overly edited or filtered images</li>
+                                    <li class="en-text">Do not show identifiable patient information</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p class="en-text" style="margin-top: 20px; font-weight: 600; color: #E74C3C;">Legal Compliance:</p>
+                        <p class="ar-text" style="display:none; margin-top: 20px; font-weight: 600; color: #E74C3C;">الامتثال القانوني:</p>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li class="en-text" style="margin-bottom: 8px;">All patient photos require written informed consent with HIPAA compliance</li>
+                            <li class="en-text" style="margin-bottom: 8px;">Before/after photos must include medical disclaimer: "Results may vary by individual"</li>
+                            <li class="en-text" style="margin-bottom: 8px;">No identifiable patient information in captions or metadata</li>
+                            <li class="en-text" style="margin-bottom: 8px;">Maintain patient privacy per Egyptian Medical Board regulations</li>
+                            <li class="ar-text" style="display:none; margin-bottom: 8px;">جميع صور المريض تتطلب موافقة مكتوبة مستنيرة مع الامتثال لـ HIPAA</li>
+                            <li class="ar-text" style="display:none; margin-bottom: 8px;">يجب أن تتضمن صور قبل وبعد إخلاء مسؤولية طبية: "قد تختلف النتائج حسب الفرد"</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Contact Information -->
-                <div class="section">
-                    <div class="section-title" data-en="Contact Information" data-ar="معلومات الاتصال">Contact Information</div>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-label" data-en="Hotline" data-ar="الخط الساخن">Hotline</div>
-                            <div class="contact-value">16465</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-label" data-en="Email" data-ar="البريد الإلكتروني">Email</div>
-                            <div class="contact-value">info@eyeworldhospital.com</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-label" data-en="Address" data-ar="العنوان">Address</div>
-                            <div class="contact-value">12 Mossadak St., Dokki, Giza</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-label" data-en="Marketing Director" data-ar="مدير التسويق">Marketing Director</div>
-                            <div class="contact-value">Hamdi El Shimi<br>hamdi.shemi@eyeworldhospital.com<br>01092760051</div>
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Contact & Support</span>
+                        <span class="ar-text" style="display:none;">الاتصال والدعم</span>
+                    </h3>
+                    <div class="section-content">
+                        <div class="platform-guide">
+                            <div class="platform-name">Marketing Director</div>
+                            <div class="platform-specs">
+                                <div class="spec-item"><span class="spec-label">Name:</span> Hamdi El Shimi</div>
+                                <div class="spec-item"><span class="spec-label">Email:</span> hamdi.shemi@eyeworldhospital.com</div>
+                                <div class="spec-item"><span class="spec-label">Phone:</span> +20 109 276 0051</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -941,236 +1209,426 @@
         </div>
 
         <!-- TOP CARE CLINICS PAGE -->
-        <div class="page" id="topcare">
-            <div class="brand-section topcare">
-                <!-- Brand Overview -->
-                <div class="section">
-                    <div class="section-title" data-en="Brand Overview" data-ar="نظرة عامة على العلامة التجارية">Brand Overview</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Strategic Positioning" data-ar="الموضع الاستراتيجي">Strategic Positioning</div>
-                        <div class="subsection-content" data-en="Top Care Clinics is the premium specialist experience brand, combining clinical professionalism with a calm, luxurious, and highly curated patient experience. We focus on head, face, dermatology, dental, and aesthetic specialties. Our positioning emphasizes comfort, speed, premium environment, and VIP treatment. Target audience: A/B+ level patients seeking luxury healthcare with specialist expertise." data-ar="عيادات توب كير هي علامة تجربة متخصصة فاخرة، تجمع بين الاحترافية السريرية وتجربة مريض هادئة وفاخرة ومنسقة بعناية. نركز على تخصصات الرأس والوجه والأمراض الجلدية والأسنان والتجميل. يؤكد موضعنا على الراحة والسرعة والبيئة الفاخرة والعلاج VIP. الجمهور المستهدف: مرضى المستوى A/B+ الذين يسعون للحصول على رعاية صحية فاخرة مع خبرة متخصصة.">Top Care Clinics is the premium specialist experience brand, combining clinical professionalism with a calm, luxurious, and highly curated patient experience. We focus on head, face, dermatology, dental, and aesthetic specialties. Our positioning emphasizes comfort, speed, premium environment, and VIP treatment. Target audience: A/B+ level patients seeking luxury healthcare with specialist expertise.</div>
-                    </div>
-
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Key Differentiators" data-ar="المميزات الرئيسية">Key Differentiators</div>
-                        <div class="subsection-content" data-en="• Premium experience and VIP treatment atmosphere
-• Multi-specialty specialist care
-• Comfort, speed, and convenience
-• Luxury environment and aesthetic discipline
-• Personalized patient pathways" data-ar="• تجربة فاخرة وأجواء العلاج VIP
-• رعاية متخصصة متعددة التخصصات
-• الراحة والسرعة والراحة
-• بيئة فاخرة وانضباط جمالي
-• مسارات مريض شخصية">• Premium experience and VIP treatment atmosphere
-• Multi-specialty specialist care
-• Comfort, speed, and convenience
-• Luxury environment and aesthetic discipline
-• Personalized patient pathways</div>
+        <div id="topcare" class="content-section">
+            <div class="brand-page">
+                <div class="brand-header">
+                    <img src="https://ik.imagekit.io/weo7pcw8v/Top_Care_Logo.png" alt="Top Care Logo">
+                    <div class="brand-info">
+                        <h2 class="en-text">Top Care Clinics</h2>
+                        <h2 class="ar-text" style="display:none;">عيادات توب كير</h2>
+                        <p class="en-text">Your Head & Face, Perfected - Premium multi-specialty care with VIP entrance, 10-minute guarantee, and 4 specialties.</p>
+                        <p class="ar-text" style="display:none;">رأسك ووجهك، مثالي - رعاية متعددة التخصصات بدخول VIP وضمان 10 دقائق و4 تخصصات.</p>
                     </div>
                 </div>
 
-                <!-- Brand Personality -->
-                <div class="section">
-                    <div class="section-title" data-en="Brand Personality & Tone of Voice" data-ar="شخصية العلامة التجارية ونبرة الصوت">Brand Personality & Tone of Voice</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Personality Traits" data-ar="سمات الشخصية">Personality Traits</div>
-                        <div class="subsection-content" data-en="Refined • Calm • Premium • Warm • Assured" data-ar="مكرر • هادئ • فاخر • دافئ • مطمئن">Refined • Calm • Premium • Warm • Assured</div>
-                    </div>
-
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Do's & Don'ts" data-ar="يجب أن تفعل ولا تفعل">Do's & Don'ts</div>
-                        <div class="do-dont">
+                <!-- Typography Section -->
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Typography System</span>
+                        <span class="ar-text" style="display:none;">نظام الطباعة</span>
+                    </h3>
+                    <div class="section-content">
+                        <div class="typography-grid">
+                            <div class="typography-column">
+                                <h4 class="en-text">English Display Font</h4>
+                                <h4 class="ar-text" style="display:none;">خط العرض الإنجليزي</h4>
+                                <div class="font-example">
+                                    <div class="font-example-label">Display / 32pt Bold</div>
+                                    <div class="font-example-text" style="font-family: serif; font-size: 32px;">Perfected.</div>
+                                    <div class="font-specs">Serif Font • Bold</div>
+                                </div>
+                                <div class="font-example">
+                                    <div class="font-example-label">Heading / 18pt SemiBold</div>
+                                    <div class="font-example-text" style="font-family: serif; font-size: 18px;">Your Face. Refined.</div>
+                                    <div class="font-specs">Serif Font • SemiBold</div>
+                                </div>
+                                <div class="font-example">
+                                    <div class="font-example-label">Body / 9pt Regular</div>
+                                    <div class="font-example-text" style="font-family: 'Noto Sans', sans-serif; font-size: 14px;">Book your procedure at Top Care</div>
+                                    <div class="font-specs">Noto Sans • Regular 400</div>
+                                </div>
+                            </div>
+                            <div class="typography-column">
+                                <h4 class="en-text">Arabic Secondary Font</h4>
+                                <h4 class="ar-text" style="display:none;">الخط العربي الثانوي</h4>
+                                <div class="font-example">
+                                    <div class="font-example-label">Display / 22pt Bold</div>
+                                    <div class="font-example-text" style="font-family: 'Noto Naskh Arabic', serif; font-size: 22px;">متكاملة</div>
+                                    <div class="font-specs">Noto Naskh Arabic • Bold</div>
+                                </div>
+                                <div class="font-example">
+                                    <div class="font-example-label">Heading / 15pt Bold</div>
+                                    <div class="font-example-text" style="font-family: 'Noto Naskh Arabic', serif; font-size: 15px;">جمالك في أيد أمينة</div>
+                                    <div class="font-specs">Noto Naskh Arabic • Bold</div>
+                                </div>
+                                <div class="font-example">
+                                    <div class="font-example-label">Body / 10pt Regular</div>
+                                    <div class="font-example-text" style="font-family: 'Noto Naskh Arabic', serif; font-size: 14px;">احجز إجراءك في توب كير</div>
+                                    <div class="font-specs">Noto Naskh Arabic • Regular</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="do-dont-grid">
                             <div class="do-box">
-                                <div class="do-label" data-en="✓ DO" data-ar="✓ يجب">✓ DO</div>
-                                <div class="do-content" data-en="'Specialist care in a premium, comfortable setting.'
-'Personalized treatment pathways designed around comfort and confidence.'" data-ar="'رعاية متخصصة في بيئة فاخرة ومريحة.'
-'مسارات علاج شخصية مصممة حول الراحة والثقة.'">"Specialist care in a premium, comfortable setting."
-"Personalized treatment pathways designed around comfort and confidence."</div>
+                                <h4>✓ Typography Rules</h4>
+                                <ul>
+                                    <li class="en-text">English-first in all primary materials for luxury positioning</li>
+                                    <li class="en-text">Serif display font for elegant, refined feel</li>
+                                    <li class="en-text">Sans-serif for UI, labels, and data</li>
+                                    <li class="en-text">Italic headlines only for key taglines</li>
+                                    <li class="en-text">Minimum 9pt for all body text</li>
+                                </ul>
                             </div>
                             <div class="dont-box">
-                                <div class="dont-label" data-en="✗ DON'T" data-ar="✗ لا تفعل">✗ DON'T</div>
-                                <div class="dont-content" data-en="'Biggest deal ever.'
-'Crazy offer.'
-'Instant perfect beauty.'
-Overuse of slang or shouty captions." data-ar="'أكبر صفقة على الإطلاق.'
-'عرض مجنون.'
-'جمال فوري مثالي.'
-الإفراط في استخدام اللغة العامية أو التعليقات الصاخبة.">"Biggest deal ever."
-"Crazy offer."
-"Instant perfect beauty."
-Overuse of slang or shouty captions.</div>
+                                <h4>✗ Typography Forbidden</h4>
+                                <ul>
+                                    <li class="en-text">Do not use decorative fonts for medical content</li>
+                                    <li class="en-text">Do not mix serif and sans-serif in same hierarchy</li>
+                                    <li class="en-text">Do not use fonts below 9pt minimum</li>
+                                    <li class="en-text">Do not apply effects or shadows to text</li>
+                                    <li class="en-text">Do not use all-caps for body text</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Visual Identity -->
-                <div class="section">
-                    <div class="section-title" data-en="Visual Identity System" data-ar="نظام الهوية البصرية">Visual Identity System</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Color Palette" data-ar="لوحة الألوان">Color Palette</div>
-                        <div class="color-palette">
-                            <div class="color-item">
-                                <div class="color-box" style="background: #FAF7F2;"></div>
-                                <div class="color-name" data-en="Cream Background" data-ar="خلفية كريمية">Cream Background</div>
-                                <div class="color-code">#FAF7F2</div>
+                <!-- Color Palette -->
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Color Palette</span>
+                        <span class="ar-text" style="display:none;">لوحة الألوان</span>
+                    </h3>
+                    <div class="section-content">
+                        <p class="en-text" style="margin-bottom: 20px;">Top Care's palette draws directly from the logo—deep blue for precision and authority, burnt orange for warmth and transformation, gold for luxury positioning that runs through every touchpoint.</p>
+                        <p class="ar-text" style="display:none; margin-bottom: 20px;">تستمد لوحة توب كير مباشرة من الشعار - الأزرق الغامق للدقة والسلطة، البرتقالي المحروق للدفء والتحول، الذهب لتحديد الفخامة الذي يمتد عبر كل نقطة اتصال.</p>
+                        
+                        <div class="color-grid">
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #1565C0;">#1565C0</div>
+                                <div class="color-info">
+                                    <div class="color-name">Blue Primary</div>
+                                    <div class="color-code">R:21 G:101 B:192</div>
+                                    <div class="color-usage">Headers, buttons, CTAs</div>
+                                </div>
                             </div>
-                            <div class="color-item">
-                                <div class="color-box" style="background: #1565C0;"></div>
-                                <div class="color-name" data-en="Authority Blue" data-ar="الأزرق السلطة">Authority Blue</div>
-                                <div class="color-code">#1565C0</div>
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #E65100;">#E65100</div>
+                                <div class="color-info">
+                                    <div class="color-name">Burnt Orange</div>
+                                    <div class="color-code">R:230 G:81 B:0</div>
+                                    <div class="color-usage">Accents, energy, action</div>
+                                </div>
                             </div>
-                            <div class="color-item">
-                                <div class="color-box" style="background: #E65100;"></div>
-                                <div class="color-name" data-en="Burnt Orange" data-ar="برتقالي محروق">Burnt Orange</div>
-                                <div class="color-code">#E65100</div>
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #B8965A;">#B8965A</div>
+                                <div class="color-info">
+                                    <div class="color-name">Gold</div>
+                                    <div class="color-code">R:184 G:150 B:90</div>
+                                    <div class="color-usage">Luxury accents, dividers</div>
+                                </div>
                             </div>
-                            <div class="color-item">
-                                <div class="color-box" style="background: #D4AE78;"></div>
-                                <div class="color-name" data-en="Gold Accent" data-ar="لهجة ذهبية">Gold Accent</div>
-                                <div class="color-code">#D4AE78</div>
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #D4AE78;">#D4AE78</div>
+                                <div class="color-info">
+                                    <div class="color-name">Gold Light</div>
+                                    <div class="color-code">R:212 G:174 B:120</div>
+                                    <div class="color-usage">Highlights, gradients</div>
+                                </div>
+                            </div>
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #FAF7F2;">#FAF7F2</div>
+                                <div class="color-info">
+                                    <div class="color-name">Cream</div>
+                                    <div class="color-code">R:250 G:247 B:242</div>
+                                    <div class="color-usage">Primary background</div>
+                                </div>
+                            </div>
+                            <div class="color-card">
+                                <div class="color-swatch" style="background: #1A1A1A; color: white;">#1A1A1A</div>
+                                <div class="color-info">
+                                    <div class="color-name">Charcoal</div>
+                                    <div class="color-code">R:26 G:26 B:26</div>
+                                    <div class="color-usage">Dark backgrounds, footer</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="do-dont-grid">
+                            <div class="do-box">
+                                <h4>✓ Color Usage Rules</h4>
+                                <ul>
+                                    <li class="en-text">Primary BG: Cream #FAF7F2 for all print & digital</li>
+                                    <li class="en-text">Gold usage: Accent only—dividers, thin lines, luxury callouts</li>
+                                    <li class="en-text">Typography: Charcoal on cream, White on blue/dark</li>
+                                    <li class="en-text">Minimum WCAG AA compliance for all text</li>
+                                    <li class="en-text">Blue for authority, Orange for transformation</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>✗ Color Forbidden</h4>
+                                <ul>
+                                    <li class="en-text">Do not use colors without sufficient contrast</li>
+                                    <li class="en-text">Do not alter or desaturate brand colors</li>
+                                    <li class="en-text">Do not apply gradients to primary colors</li>
+                                    <li class="en-text">Do not use gold as primary background</li>
+                                    <li class="en-text">Do not mix with other brand color systems</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Logo Usage" data-ar="استخدام الشعار">Logo Usage</div>
-                        <div class="subsection-content" data-en="• Always maintain clear space around logo
-• Minimum size: 80px width for digital
-• Approved backgrounds: Cream, white, or dark backgrounds
-• Never distort, rotate, or alter logo proportions
-• Never place on competing visual elements
-• Maintain premium appearance in all applications" data-ar="• الحفاظ دائماً على مساحة واضحة حول الشعار
-• الحد الأدنى للحجم: عرض 80 بكسل للرقمية
-• الخلفيات المعتمدة: خلفيات كريمية أو بيضاء أو داكنة
-• لا تشوه أو تدوّر أو تغيّر نسب الشعار
-• لا تضع على عناصر بصرية متنافسة
-• الحفاظ على المظهر الفاخر في جميع التطبيقات">• Always maintain clear space around logo
-• Minimum size: 80px width for digital
-• Approved backgrounds: Cream, white, or dark backgrounds
-• Never distort, rotate, or alter logo proportions
-• Never place on competing visual elements
-• Maintain premium appearance in all applications</div>
-                    </div>
                 </div>
 
-                <!-- Photography & Video -->
-                <div class="section">
-                    <div class="section-title" data-en="Photography & Video Standards" data-ar="معايير التصوير والفيديو">Photography & Video Standards</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Visual Principle" data-ar="المبدأ البصري">Visual Principle</div>
-                        <div class="subsection-content" data-en="Clinical luxury with real human warmth. Show real clinic interiors, premium patient environments, clean whites and cream tones, high-end portraiture, and elegant close-ups." data-ar="الفخامة السريرية مع الدفء الإنساني الحقيقي. أظهر الداخليات السريرية الحقيقية والبيئات المريضة الفاخرة والنبرات البيضاء والكريمية النظيفة والتصوير الراقي والإغلاقات الأنيقة.">Clinical luxury with real human warmth. Show real clinic interiors, premium patient environments, clean whites and cream tones, high-end portraiture, and elegant close-ups.</div>
-                    </div>
-
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Approved Styles" data-ar="الأنماط المعتمدة">Approved Styles</div>
-                        <div class="subsection-content" data-en="✓ Real clinic interiors and premium environments
-✓ Real patients with explicit consent
-✓ Natural, confident expressions
-✓ Clean whites and cream color tones
-✓ High-end, professional portraiture
-✓ Elegant close-ups and detail shots
-✓ Professional lighting with warm undertones" data-ar="✓ الداخليات السريرية الحقيقية والبيئات الفاخرة
-✓ مرضى حقيقيون بموافقة صريحة
-✓ تعبيرات طبيعية وواثقة
-✓ نبرات بيضاء وكريمية نظيفة
-✓ تصوير احترافي راقي
-✓ إغلاقات أنيقة وصور التفاصيل
-✓ إضاءة احترافية بنبرات دافئة">✓ Real clinic interiors and premium environments
-✓ Real patients with explicit consent
-✓ Natural, confident expressions
-✓ Clean whites and cream color tones
-✓ High-end, professional portraiture
-✓ Elegant close-ups and detail shots
-✓ Professional lighting with warm undertones</div>
-                    </div>
-                </div>
-
-                <!-- Content Strategy -->
-                <div class="section">
-                    <div class="section-title" data-en="Content Strategy" data-ar="استراتيجية المحتوى">Content Strategy</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Content Pillars" data-ar="أعمدة المحتوى">Content Pillars</div>
-                        <table class="content-table">
-                            <thead>
-                                <tr>
-                                    <th data-en="Content Pillar" data-ar="عمود المحتوى">Content Pillar</th>
-                                    <th data-en="Percentage" data-ar="النسبة المئوية">Percentage</th>
-                                    <th data-en="Description" data-ar="الوصف">Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-en="Education" data-ar="التعليم">Education</td>
-                                    <td>25%</td>
-                                    <td data-en="Aesthetic and dermatology tips, dental care guidance" data-ar="نصائح جمالية وجلدية، إرشادات العناية بالأسنان">Aesthetic and dermatology tips, dental care guidance</td>
-                                </tr>
-                                <tr>
-                                    <td data-en="Conversion / Services" data-ar="التحويل / الخدمات">Conversion / Services</td>
-                                    <td>25%</td>
-                                    <td data-en="Service offerings, packages, booking information" data-ar="عروض الخدمات والحزم ومعلومات الحجز">Service offerings, packages, booking information</td>
-                                </tr>
-                                <tr>
-                                    <td data-en="Premium Experience" data-ar="تجربة فاخرة">Premium Experience</td>
-                                    <td>20%</td>
-                                    <td data-en="Clinic environment, VIP treatment, comfort focus" data-ar="بيئة العيادة والعلاج VIP وركز الراحة">Clinic environment, VIP treatment, comfort focus</td>
-                                </tr>
-                                <tr>
-                                    <td data-en="Specialist Authority" data-ar="سلطة متخصصة">Specialist Authority</td>
-                                    <td>15%</td>
-                                    <td data-en="Doctor profiles, credentials, expertise" data-ar="ملفات الأطباء والبيانات الاعتماد والخبرة">Doctor profiles, credentials, expertise</td>
-                                </tr>
-                                <tr>
-                                    <td data-en="Seasonal & Lifestyle" data-ar="الموسمية ونمط الحياة">Seasonal & Lifestyle</td>
-                                    <td>15%</td>
-                                    <td data-en="Beauty trends, self-care campaigns, seasonal offers" data-ar="اتجاهات الجمال وحملات العناية بالذات والعروض الموسمية">Beauty trends, self-care campaigns, seasonal offers</td>
-                                </tr>
-                            </tbody>
+                <!-- Logo Usage -->
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Logo Usage Rules</span>
+                        <span class="ar-text" style="display:none;">قواعد استخدام الشعار</span>
+                    </h3>
+                    <div class="section-content">
+                        <table>
+                            <tr>
+                                <th class="en-text">Specification</th>
+                                <th class="en-text">Requirement</th>
+                                <th class="ar-text" style="display:none;">المواصفة</th>
+                                <th class="ar-text" style="display:none;">المتطلب</th>
+                            </tr>
+                            <tr>
+                                <td class="en-text">Clear Space</td>
+                                <td class="en-text">Height of face silhouette on all four sides</td>
+                                <td class="ar-text" style="display:none;">المسافة الواضحة</td>
+                                <td class="ar-text" style="display:none;">ارتفاع صورة الوجه على جميع الجوانب الأربعة</td>
+                            </tr>
+                            <tr>
+                                <td class="en-text">Print Minimum</td>
+                                <td class="en-text">25mm width</td>
+                                <td class="ar-text" style="display:none;">الحد الأدنى للطباعة</td>
+                                <td class="ar-text" style="display:none;">عرض 25 ملم</td>
+                            </tr>
+                            <tr>
+                                <td class="en-text">Digital Minimum</td>
+                                <td class="en-text">90px width</td>
+                                <td class="ar-text" style="display:none;">الحد الأدنى الرقمي</td>
+                                <td class="ar-text" style="display:none;">عرض 90 بكسل</td>
+                            </tr>
+                            <tr>
+                                <td class="en-text">Approved Backgrounds</td>
+                                <td class="en-text">Cream, White, Deep Blue, Dark</td>
+                                <td class="ar-text" style="display:none;">الخلفيات المعتمدة</td>
+                                <td class="ar-text" style="display:none;">كريم، أبيض، أزرق غامق، داكن</td>
+                            </tr>
                         </table>
+
+                        <div class="do-dont-grid">
+                            <div class="do-box">
+                                <h4>✓ Approved Logo Usage</h4>
+                                <ul>
+                                    <li class="en-text">Use on cream, white, deep blue, or dark backgrounds</li>
+                                    <li class="en-text">Maintain original proportions without distortion</li>
+                                    <li class="en-text">Full lockup only—never separate elements</li>
+                                    <li class="en-text">Ensure minimum clear space on all sides</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>✗ NOT ALLOWED</h4>
+                                <ul>
+                                    <li class="en-text">Do not recolor or apply effects to the logo</li>
+                                    <li class="en-text">Do not place on busy or patterned backgrounds</li>
+                                    <li class="en-text">Do not rotate, flip, or distort in any way</li>
+                                    <li class="en-text">Never separate logo elements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voice & Tone -->
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Voice & Tone</span>
+                        <span class="ar-text" style="display:none;">الصوت والنبرة</span>
+                    </h3>
+                    <div class="section-content">
+                        <p class="en-text" style="margin-bottom: 20px;">Top Care speaks with quiet confidence. No noise, no hard sell. We let the experience do the talking. Our copy is refined, evocative, and experience-led—like Harley Street, but with Cairo warmth.</p>
+                        <p class="ar-text" style="display:none; margin-bottom: 20px;">تتحدث توب كير بثقة هادئة. بلا ضوضاء، بلا بيع قاسي. نترك التجربة تتحدث عن نفسها. نسختنا مصقولة وجذابة وموجهة بالتجربة - مثل شارع هارلي، لكن بدفء القاهرة.</p>
+                        
+                        <div class="tone-examples">
+                            <div class="tone-example">
+                                <div class="tone-label">Luxury & Expertise</div>
+                                <div class="tone-text">"Where expertise becomes an experience."</div>
+                            </div>
+                            <div class="tone-example">
+                                <div class="tone-label">Transformation</div>
+                                <div class="tone-text">"Your head. Your face. Perfectly cared for."</div>
+                            </div>
+                            <div class="tone-example">
+                                <div class="tone-label">VIP Exclusivity</div>
+                                <div class="tone-text">"A private entrance. A 10 minute guarantee. A different standard."</div>
+                            </div>
+                        </div>
+
+                        <div class="do-dont-grid">
+                            <div class="do-box">
+                                <h4>✓ Right Tone</h4>
+                                <ul>
+                                    <li class="en-text">Refined: Elegant language, no superlatives without substance</li>
+                                    <li class="en-text">Evocative: Paint the experience, describe the feeling</li>
+                                    <li class="en-text">Assured: Confident without arrogance, never overpromise</li>
+                                    <li class="en-text">Focus on luxury experience and precision care</li>
+                                    <li class="en-text">Emphasize VIP treatment and exclusivity</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>✗ Avoid - Loud/Generic</h4>
+                                <ul>
+                                    <li class="en-text">Do not use "BIGGEST DEAL EVER! BOOK NOW! LIMITED TIME ONLY!"</li>
+                                    <li class="en-text">Do not shout—we attract, never hard-sell</li>
+                                    <li class="en-text">Do not make medical guarantees</li>
+                                    <li class="en-text">Do not use casual or slang language</li>
+                                    <li class="en-text">Do not compare directly with competitors</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Social Media Guidelines -->
-                <div class="section">
-                    <div class="section-title" data-en="Social Media Guidelines" data-ar="إرشادات وسائل التواصل الاجتماعي">Social Media Guidelines</div>
-                    
-                    <div class="subsection">
-                        <div class="subsection-title" data-en="Posting Frequency" data-ar="تكرار النشر">Posting Frequency</div>
-                        <div class="subsection-content" data-en="• Facebook Feed: 4–5 posts per week
-• Reels: 2–3 per week
-• Stories: Daily" data-ar="• موجز Facebook: 4-5 منشورات في الأسبوع
-• Reels: 2-3 في الأسبوع
-• Stories: يومياً">• Facebook Feed: 4–5 posts per week
-• Reels: 2–3 per week
-• Stories: Daily</div>
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Social Media Guidelines</span>
+                        <span class="ar-text" style="display:none;">إرشادات وسائل التواصل الاجتماعي</span>
+                    </h3>
+                    <div class="section-content">
+                        <p class="en-text" style="margin-bottom: 20px;">Top Care maintains a premium, aspirational presence. Content showcases luxury experience, precision care, and exclusive benefits. Tone is sophisticated, never aggressive.</p>
+                        <p class="ar-text" style="display:none; margin-bottom: 20px;">تحافظ توب كير على حضور فاخر وطموح. يعرض المحتوى تجربة فاخرة ورعاية دقيقة وفوائد حصرية. النبرة متطورة، لا تكون عدوانية أبداً.</p>
+                        
+                        <div class="platform-guide">
+                            <div class="platform-name">Facebook</div>
+                            <div class="platform-specs">
+                                <div class="spec-item"><span class="spec-label">Posting Frequency:</span> 3-4 times per week</div>
+                                <div class="spec-item"><span class="spec-label">Content Mix:</span> 25% Education, 25% Conversion, 20% Premium experience, 20% Patient outcomes, 10% Behind-the-scenes</div>
+                                <div class="spec-item"><span class="spec-label">Caption Length:</span> 120-180 characters optimal</div>
+                                <div class="spec-item"><span class="spec-label">Hashtags:</span> 3-5 luxury-focused hashtags</div>
+                            </div>
+                        </div>
+
+                        <div class="platform-guide">
+                            <div class="platform-name">Instagram</div>
+                            <div class="platform-specs">
+                                <div class="spec-item"><span class="spec-label">Posting Frequency:</span> 4-5 times per week</div>
+                                <div class="spec-item"><span class="spec-label">Content Mix:</span> 30% Luxury lifestyle, 25% Before/after results, 20% Premium experience, 15% Patient testimonials, 10% Behind-the-scenes</div>
+                                <div class="spec-item"><span class="spec-label">Caption Length:</span> 80-120 characters for main text</div>
+                                <div class="spec-item"><span class="spec-label">Hashtags:</span> 15-20 luxury and lifestyle hashtags</div>
+                            </div>
+                        </div>
+
+                        <div class="platform-guide">
+                            <div class="platform-name">YouTube</div>
+                            <div class="platform-specs">
+                                <div class="spec-item"><span class="spec-label">Video Length:</span> 2-5 minutes optimal for luxury positioning</div>
+                                <div class="spec-item"><span class="spec-label">Upload Frequency:</span> 2-3 videos per month</div>
+                                <div class="spec-item"><span class="spec-label">Content Types:</span> Patient testimonials, facility tours, procedure explanations, luxury experience showcases</div>
+                                <div class="spec-item"><span class="spec-label">Subtitles:</span> Arabic and English subtitles mandatory</div>
+                            </div>
+                        </div>
+
+                        <div class="platform-guide">
+                            <div class="platform-name">WhatsApp Business</div>
+                            <div class="platform-specs">
+                                <div class="spec-item"><span class="spec-label">Response Time:</span> Within 1 hour during business hours</div>
+                                <div class="spec-item"><span class="spec-label">Message Format:</span> Premium, personalized, bilingual</div>
+                                <div class="spec-item"><span class="spec-label">Content:</span> VIP appointment confirmations, exclusive offers, personalized recommendations</div>
+                                <div class="spec-item"><span class="spec-label">Frequency:</span> Maximum 2 messages per week</div>
+                            </div>
+                        </div>
+
+                        <div class="do-dont-grid">
+                            <div class="do-box">
+                                <h4>✓ Social Media Best Practices</h4>
+                                <ul>
+                                    <li class="en-text">Emphasize VIP experience and exclusivity</li>
+                                    <li class="en-text">Showcase luxury clinic environment and amenities</li>
+                                    <li class="en-text">Use high-quality, professionally shot imagery</li>
+                                    <li class="en-text">Include patient testimonials with proper consent</li>
+                                    <li class="en-text">Respond to inquiries within 1 hour</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>✗ Social Media Forbidden</h4>
+                                <ul>
+                                    <li class="en-text">Do not use aggressive sales language or urgency tactics</li>
+                                    <li class="en-text">Do not post graphic or explicit surgical images</li>
+                                    <li class="en-text">Do not share unverified medical claims</li>
+                                    <li class="en-text">Do not use patient photos without consent</li>
+                                    <li class="en-text">Do not engage in negative competitor commentary</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photography Guidelines -->
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Photography & Visual Standards</span>
+                        <span class="ar-text" style="display:none;">معايير التصوير والمرئيات</span>
+                    </h3>
+                    <div class="section-content">
+                        <p class="en-text" style="margin-bottom: 20px;">Top Care photography emphasizes luxury, precision, and the premium experience. All imagery conveys sophistication, comfort, and world-class care in an elegant environment.</p>
+                        <p class="ar-text" style="display:none; margin-bottom: 20px;">يؤكد التصوير الفوتوغرافي في توب كير على الفخامة والدقة وتجربة الفخامة. تنقل جميع الصور الرقي والراحة والرعاية من الدرجة الأولى في بيئة أنيقة.</p>
+                        
+                        <div class="do-dont-grid">
+                            <div class="do-box">
+                                <h4>✓ Photography Approved</h4>
+                                <ul>
+                                    <li class="en-text">Luxury clinic environment with premium aesthetics</li>
+                                    <li class="en-text">Professional doctors in sophisticated settings</li>
+                                    <li class="en-text">High-end medical equipment and technology</li>
+                                    <li class="en-text">Elegant before/after results with disclaimers</li>
+                                    <li class="en-text">Warm, professional lighting with sophisticated color grading</li>
+                                    <li class="en-text">Patient testimonials with written consent</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>✗ Photography Forbidden</h4>
+                                <ul>
+                                    <li class="en-text">Do not use generic or stock clinic photos</li>
+                                    <li class="en-text">Do not show graphic surgical procedures</li>
+                                    <li class="en-text">Do not use patient photos without consent</li>
+                                    <li class="en-text">Do not show outdated or basic equipment</li>
+                                    <li class="en-text">Do not use overly edited or artificial images</li>
+                                    <li class="en-text">Do not show identifiable patient information</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p class="en-text" style="margin-top: 20px; font-weight: 600; color: #E74C3C;">Legal Compliance:</p>
+                        <p class="ar-text" style="display:none; margin-top: 20px; font-weight: 600; color: #E74C3C;">الامتثال القانوني:</p>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li class="en-text" style="margin-bottom: 8px;">All patient photos require written informed consent with HIPAA compliance</li>
+                            <li class="en-text" style="margin-bottom: 8px;">Before/after photos must include medical disclaimer: "Results may vary by individual"</li>
+                            <li class="en-text" style="margin-bottom: 8px;">No identifiable patient information in captions or metadata</li>
+                            <li class="en-text" style="margin-bottom: 8px;">Maintain patient privacy per Egyptian Medical Board regulations</li>
+                            <li class="ar-text" style="display:none; margin-bottom: 8px;">جميع صور المريض تتطلب موافقة مكتوبة مستنيرة مع الامتثال لـ HIPAA</li>
+                            <li class="ar-text" style="display:none; margin-bottom: 8px;">يجب أن تتضمن صور قبل وبعد إخلاء مسؤولية طبية: "قد تختلف النتائج حسب الفرد"</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Contact Information -->
-                <div class="section">
-                    <div class="section-title" data-en="Contact Information" data-ar="معلومات الاتصال">Contact Information</div>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-label" data-en="Hotline" data-ar="الخط الساخن">Hotline</div>
-                            <div class="contact-value">16465</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-label" data-en="Email" data-ar="البريد الإلكتروني">Email</div>
-                            <div class="contact-value">info.topcare@eyeworldhospital.com</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-label" data-en="Address" data-ar="العنوان">Address</div>
-                            <div class="contact-value">12 Mossadak St., Dokki, Giza</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-label" data-en="Marketing Director" data-ar="مدير التسويق">Marketing Director</div>
-                            <div class="contact-value">Hamdi El Shimi<br>hamdi.shemi@eyeworldhospital.com<br>01092760051</div>
+                <div class="guideline-section">
+                    <h3 class="section-title">
+                        <span class="en-text">Contact & Support</span>
+                        <span class="ar-text" style="display:none;">الاتصال والدعم</span>
+                    </h3>
+                    <div class="section-content">
+                        <div class="platform-guide">
+                            <div class="platform-name">Marketing Director</div>
+                            <div class="platform-specs">
+                                <div class="spec-item"><span class="spec-label">Name:</span> Hamdi El Shimi</div>
+                                <div class="spec-item"><span class="spec-label">Email:</span> hamdi.shemi@eyeworldhospital.com</div>
+                                <div class="spec-item"><span class="spec-label">Phone:</span> +20 109 276 0051</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1178,57 +1636,61 @@ Overuse of slang or shouty captions.</div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <div class="footer-text" data-en="© 2026 Eye World Hospital & Top Care Clinics. All rights reserved." data-ar="© 2026 مستشفى عالم العيون وعيادات توب كير. جميع الحقوق محفوظة.">© 2026 Eye World Hospital & Top Care Clinics. All rights reserved.</div>
-        <div class="footer-text" data-en="This document is confidential and intended for ValU partnership use only." data-ar="هذه الوثيقة سرية وموجهة لاستخدام شراكة ValU فقط.">This document is confidential and intended for ValU partnership use only.</div>
-    </div>
+    <footer>
+        <p class="en-text">&copy; 2026 Eye World Hospital & Top Care Clinics. All rights reserved.</p>
+        <p class="ar-text" style="display:none;">&copy; 2026 مستشفى دنيا العيون وعيادات توب كير. جميع الحقوق محفوظة.</p>
+        <p class="en-text" style="font-size: 12px; color: rgba(255,255,255,0.7);">Confidential - For ValU Partnership Use Only</p>
+        <p class="ar-text" style="display:none; font-size: 12px; color: rgba(255,255,255,0.7);">سري - للاستخدام الحصري في شراكة فالو</p>
+    </footer>
 
     <script>
-        // Language switching
-        function setLanguage(lang) {
-            const buttons = document.querySelectorAll('.lang-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update active tab
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.closest('.nav-tab').classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
 
+        function setLanguage(lang) {
             const html = document.documentElement;
             html.lang = lang;
             
-            if (lang === 'ar') {
-                document.body.classList.add('ar');
-                document.body.classList.remove('en');
-            } else {
-                document.body.classList.add('en');
-                document.body.classList.remove('ar');
-            }
-
-            const elements = document.querySelectorAll('[data-en][data-ar]');
-            elements.forEach(el => {
-                if (lang === 'ar') {
-                    el.textContent = el.getAttribute('data-ar');
-                } else {
-                    el.textContent = el.getAttribute('data-en');
-                }
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
             });
-
-            html.dir = lang === 'ar' ? 'rtl' : 'ltr';
-        }
-
-        // Page navigation
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-
-            const tabs = document.querySelectorAll('.tab-btn');
-            tabs.forEach(tab => tab.classList.remove('active'));
             event.target.classList.add('active');
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Toggle text visibility
+            if (lang === 'en') {
+                document.querySelectorAll('.en-text').forEach(el => el.style.display = '');
+                document.querySelectorAll('.ar-text').forEach(el => el.style.display = 'none');
+            } else {
+                document.querySelectorAll('.en-text').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.ar-text').forEach(el => el.style.display = '');
+            }
         }
 
-        // Initialize
-        setLanguage('en');
+        function downloadLogo(url, filename) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     </script>
 </body>
 </html>
