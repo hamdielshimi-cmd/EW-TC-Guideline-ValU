@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye World Hospital & Top Care Clinics - Brand Guidelines for ValU</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --eyeworld-primary: #1A9B8E;
+            --eyeworld-dark: #0F6B62;
+            --eyeworld-light: #E8F7F5;
+            --topcare-primary: #1565C0;
+            --topcare-accent: #E65100;
+            --topcare-light: #E8F0FE;
+            --text-dark: #1A1A1A;
+            --text-light: #666666;
+            --border-light: #E0E0E0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #F5F5F5;
+        }
+
+        /* Header Navigation */
+        .header {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 8px;
+            background: #F0F0F0;
+            padding: 6px;
+            border-radius: 4px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: var(--text-dark);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border: 2px solid var(--border-light);
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+        }
+
+        .tab-btn.home {
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+        }
+
+        .tab-btn.eyeworld {
+            border-color: var(--eyeworld-primary);
+            color: var(--eyeworld-primary);
+        }
+
+        .tab-btn.topcare {
+            border-color: var(--topcare-primary);
+            color: var(--topcare-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--text-dark);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .tab-btn.eyeworld.active {
+            background: var(--eyeworld-primary);
+            border-color: var(--eyeworld-primary);
+        }
+
+        .tab-btn.topcare.active {
+            background: var(--topcare-primary);
+            border-color: var(--topcare-primary);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Home Page */
+        .hero-section {
+            background: linear-gradient(135deg, var(--eyeworld-primary) 0%, var(--topcare-primary) 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .introduction-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .intro-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .intro-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* Logo Download Section */
+        .download-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .download-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .download-item {
+            text-align: center;
+            padding: 30px;
+            background: #F9F9F9;
+            border-radius: 8px;
+            border: 2px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .download-item:hover {
+            border-color: var(--eyeworld-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-item.topcare:hover {
+            border-color: var(--topcare-primary);
+        }
+
+        .logo-preview {
+            height: 120px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-preview img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .download-label {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--eyeworld-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .download-item.topcare .download-btn {
+            background: var(--topcare-primary);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Creative Gallery */
+        .gallery-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-label {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .gallery-description {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Section Styles */
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--border-light);
+        }
+
+        .brand-section.eyeworld .section-title {
+            color: var(--eyeworld-primary);
+            border-bottom-color: var(--eyeworld-primary);
+        }
+
+        .brand-section.topcare .section-title {
+            color: var(--topcare-primary);
+            border-bottom-color: var(--topcare-primary);
+        }
+
+        .subsection {
+            margin-bottom: 30px;
+        }
+
+        .subsection-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .subsection-content {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* Do/Don't Section */
+        .do-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .do-box, .dont-box {
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+
+        .do-box {
+            background: #E8F5E9;
+            border-left-color: #4CAF50;
+        }
+
+        .dont-box {
+            background: #FFEBEE;
+            border-left-color: #F44336;
+        }
+
+        .do-label, .dont-label {
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .do-label {
+            color: #2E7D32;
+        }
+
+        .dont-label {
+            color: #C62828;
+        }
+
+        .do-content, .dont-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Color Palette */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .color-item {
+            text-align: center;
+        }
+
+        .color-box {
+            width: 100%;
+            height: 100px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-light);
+        }
+
+        .color-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .color-code {
+            font-size: 12px;
+            color: var(--text-light);
+            font-family: monospace;
+        }
+
+        /* Content Table */
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .content-table th {
+            background: #F5F5F5;
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-light);
+            font-size: 14px;
+        }
+
+        .content-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+
+        .content-table tr:hover {
+            background: #FAFAFA;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            padding: 20px;
+            background: #F9F9F9;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+
+        .brand-section.eyeworld .contact-item {
+            border-left-color: var(--eyeworld-primary);
+        }
+
+        .brand-section.topcare .contact-item {
+            border-left-color: var(--topcare-primary);
+        }
+
+        .contact-label {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .contact-value {
+            font-size: 15px;
+            color: var(--text-dark);
+            word-break: break-all;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 30px 40px;
+            margin-top: 60px;
+            font-size: 14px;
+            border-radius: 12px;
+        }
+
+        .footer-text {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .tab-navigation {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                width: 100%;
+            }
+
+            .do-dont {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .main-container {
+                padding: 20px;
+            }
+
+            .hero-section {
+                padding: 30px 20px;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Language-specific styles */
+        .ar {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Arabic Typesetting', 'Arial Unicode MS', sans-serif;
+        }
+
+        .en {
+            direction: ltr;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="header-title" data-en="Eye World Hospital & Top Care Clinics" data-ar="مستشفى عالم العيون وعيادات توب كير">Eye World Hospital & Top Care Clinics</div>
+            <div class="header-controls">
+                <div class="language-toggle">
+                    <button class="lang-btn active" onclick="setLanguage('en')" data-en="English" data-ar="English">English</button>
+                    <button class="lang-btn" onclick="setLanguage('ar')" data-en="العربية" data-ar="العربية">العربية</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn home active" onclick="showPage('home')" data-en="Home" data-ar="الرئيسية">Home</button>
+            <button class="tab-btn eyeworld" onclick="showPage('eyeworld')" data-en="Eye World Hospital" data-ar="مستشفى عالم العيون">Eye World Hospital</button>
+            <button class="tab-btn topcare" onclick="showPage('topcare')" data-en="Top Care Clinics" data-ar="عيادات توب كير">Top Care Clinics</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- HOME PAGE -->
+        <div class="page active" id="home">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-title" data-en="Leadership Through Excellence in Healthcare" data-ar="القيادة من خلال التميز في الرعاية الصحية">Leadership Through Excellence in Healthcare</div>
+                <div class="hero-subtitle" data-en="Delivering comprehensive healthcare solutions through two distinct, purpose-built brands" data-ar="تقديم حلول الرعاية الصحية الشاملة من خلال علامتين تجاريتين مميزتين">Delivering comprehensive healthcare solutions through two distinct, purpose-built brands</div>
+            </div>
+
+            <!-- Introduction Section -->
+            <div class="introduction-section">
+                <div class="intro-title" data-en="About Our Organization" data-ar="حول منظمتنا">About Our Organization</div>
+                <div class="intro-text" data-en="Since 2004, Eye World Hospital has established itself as a pioneering force in ophthalmology, delivering exceptional medical care to thousands of patients. Our track record speaks for itself—from groundbreaking surgical procedures to comprehensive diagnostic services, we have consistently set industry standards in eye care excellence." data-ar="منذ عام 2004، أثبتت مستشفى عالم العيون نفسها كقوة رائدة في طب العيون، وتقديم رعاية طبية استثنائية لآلاف المرضى. سجلنا يتحدث عن نفسه - من الإجراءات الجراحية الرائدة إلى الخدمات التشخيصية الشاملة، لقد حددنا باستمرار معايير الصناعة في تميز رعاية العيون.">Since 2004, Eye World Hospital has established itself as a pioneering force in ophthalmology, delivering exceptional medical care to thousands of patients. Our track record speaks for itself—from groundbreaking surgical procedures to comprehensive diagnostic services, we have consistently set industry standards in eye care excellence.</div>
+                
+                <div class="intro-text" data-en="Today, Eye World Hospital and Top Care Clinics represent a comprehensive healthcare ecosystem. Eye World Hospital remains Egypt's trusted authority in ophthalmology, while Top Care Clinics extends our commitment to excellence across multiple specialties, offering premium healthcare experiences in dermatology, dental care, and aesthetic medicine." data-ar="اليوم، تمثل مستشفى عالم العيون وعيادات توب كير نظاماً صحياً شاملاً. تبقى مستشفى عالم العيون السلطة الموثوقة في مصر في طب العيون، بينما تمتد عيادات توب كير التزامنا بالتميز عبر تخصصات متعددة، وتقدم تجارب رعاية صحية فاخرة في الأمراض الجلدية والعناية بالأسنان والطب التجميلي.">Today, Eye World Hospital and Top Care Clinics represent a comprehensive healthcare ecosystem. Eye World Hospital remains Egypt's trusted authority in ophthalmology, while Top Care Clinics extends our commitment to excellence across multiple specialties, offering premium healthcare experiences in dermatology, dental care, and aesthetic medicine.</div>
+                
+                <div class="intro-text" data-en="Our success is built on three pillars: clinical expertise, patient-centered care, and continuous innovation. Every achievement reflects our unwavering dedication to transforming lives through world-class medical services." data-ar="يبنى نجاحنا على ثلاث ركائز: الخبرة السريرية والرعاية المركزة على المريض والابتكار المستمر. كل إنجاز يعكس التزامنا الثابت بتحويل الحياة من خلال الخدمات الطبية من الدرجة الأولى.">Our success is built on three pillars: clinical expertise, patient-centered care, and continuous innovation. Every achievement reflects our unwavering dedication to transforming lives through world-class medical services.</div>
+            </div>
+
+            <!-- Logo Download Section -->
+            <div class="download-section">
+                <div class="download-title" data-en="Brand Assets - Download Logos" data-ar="أصول العلامة التجارية - تحميل الشعارات">Brand Assets - Download Logos</div>
+                <div class="download-grid">
+                    <div class="download-item">
+                        <div class="logo-preview">
+                            <img src="https://ik.imagekit.io/weo7pcw8v/Eye_World_Logo.png" alt="Eye World Hospital Logo">
+                        </div>
+                        <div class="download-label" data-en="Eye World Hospital Logo" data-ar="شعار مستشفى عالم العيون">Eye World Hospital Logo</div>
+                        <a href="https://ik.imagekit.io/weo7pcw8v/Eye_World_Logo.png" download class="download-btn" data-en="Download" data-ar="تحميل">Download</a>
+                    </div>
+                    <div class="download-item topcare">
+                        <div class="logo-preview">
+                            <img src="https://ik.imagekit.io/weo7pcw8v/Top_Care_Logo.png" alt="Top Care Clinics Logo">
+                        </div>
+                        <div class="download-label" data-en="Top Care Clinics Logo" data-ar="شعار عيادات توب كير">Top Care Clinics Logo</div>
+                        <a href="https://ik.imagekit.io/weo7pcw8v/Top_Care_Logo.png" download class="download-btn" data-en="Download" data-ar="تحميل">Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creative Gallery Section -->
+            <div class="gallery-section">
+                <div class="gallery-title" data-en="Creative Samples" data-ar="عينات إبداعية">Creative Samples</div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="showPage('eyeworld')">
+                        <img src="https://ik.imagekit.io/weo7pcw8v/image(2).png" alt="Eye World Creative Sample 1" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-label" data-en="Eye World Sample 1" data-ar="عينة عالم العيون 1">Eye World Sample 1</div>
+                            <div class="gallery-description" data-en="Click to view Eye World guidelines" data-ar="انقر لعرض إرشادات عالم العيون">Click to view Eye World guidelines</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="showPage('eyeworld')">
+                        <img src="https://ik.imagekit.io/weo7pcw8v/image.png" alt="Eye World Creative Sample 2" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-label" data-en="Eye World Sample 2" data-ar="عينة عالم العيون 2">Eye World Sample 2</div>
+                            <div class="gallery-description" data-en="Click to view Eye World guidelines" data-ar="انقر لعرض إرشادات عالم العيون">Click to view Eye World guidelines</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="showPage('topcare')">
+                        <img src="https://ik.imagekit.io/weo7pcw8v/image(1).png" alt="Top Care Creative Sample 1" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-label" data-en="Top Care Sample 1" data-ar="عينة توب كير 1">Top Care Sample 1</div>
+                            <div class="gallery-description" data-en="Click to view Top Care guidelines" data-ar="انقر لعرض إرشادات توب كير">Click to view Top Care guidelines</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="showPage('topcare')">
+                        <img src="https://ik.imagekit.io/weo7pcw8v/image(3).png" alt="Top Care Creative Sample 2" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-label" data-en="Top Care Sample 2" data-ar="عينة توب كير 2">Top Care Sample 2</div>
+                            <div class="gallery-description" data-en="Click to view Top Care guidelines" data-ar="انقر لعرض إرشادات توب كير">Click to view Top Care guidelines</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EYE WORLD HOSPITAL PAGE -->
+        <div class="page" id="eyeworld">
+            <div class="brand-section eyeworld">
+                <!-- Brand Overview -->
+                <div class="section">
+                    <div class="section-title" data-en="Brand Overview" data-ar="نظرة عامة على العلامة التجارية">Brand Overview</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Strategic Positioning" data-ar="الموضع الاستراتيجي">Strategic Positioning</div>
+                        <div class="subsection-content" data-en="Eye World Hospital is the clinical authority brand, specializing exclusively in ophthalmology. We speak with confidence, clarity, and evidence-led professionalism. Our positioning emphasizes expertise, trust, advanced technology, and patient safety. Target audience: B-level patients seeking specialized eye care from experienced professionals." data-ar="مستشفى عالم العيون هي علامة السلطة السريرية، المتخصصة حصراً في طب العيون. نتحدث بثقة ووضوح واحترافية قائمة على الأدلة. يؤكد موضعنا على الخبرة والثقة والتكنولوجيا المتقدمة وسلامة المريض. الجمهور المستهدف: مرضى المستوى B الذين يسعون للحصول على رعاية عيون متخصصة من محترفين ذوي خبرة.">Eye World Hospital is the clinical authority brand, specializing exclusively in ophthalmology. We speak with confidence, clarity, and evidence-led professionalism. Our positioning emphasizes expertise, trust, advanced technology, and patient safety. Target audience: B-level patients seeking specialized eye care from experienced professionals.</div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Key Differentiators" data-ar="المميزات الرئيسية">Key Differentiators</div>
+                        <div class="subsection-content" data-en="• Ophthalmology specialization and expertise
+• Senior leadership and Dr. Ihab's reputation
+• Advanced diagnostic technology
+• Conference and research credibility
+• Proven patient trust and scale" data-ar="• التخصص والخبرة في طب العيون
+• القيادة العليا وسمعة د. إيهاب
+• تكنولوجيا التشخيص المتقدمة
+• مصداقية المؤتمرات والبحث
+• ثقة المريض والحجم المثبت">• Ophthalmology specialization and expertise
+• Senior leadership and Dr. Ihab's reputation
+• Advanced diagnostic technology
+• Conference and research credibility
+• Proven patient trust and scale</div>
+                    </div>
+                </div>
+
+                <!-- Brand Personality -->
+                <div class="section">
+                    <div class="section-title" data-en="Brand Personality & Tone of Voice" data-ar="شخصية العلامة التجارية ونبرة الصوت">Brand Personality & Tone of Voice</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Personality Traits" data-ar="سمات الشخصية">Personality Traits</div>
+                        <div class="subsection-content" data-en="Confident • Expert • Reassuring • Direct • Responsible" data-ar="واثق • خبير • مطمئن • مباشر • مسؤول">Confident • Expert • Reassuring • Direct • Responsible</div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Do's & Don'ts" data-ar="يجب أن تفعل ولا تفعل">Do's & Don'ts</div>
+                        <div class="do-dont">
+                            <div class="do-box">
+                                <div class="do-label" data-en="✓ DO" data-ar="✓ يجب">✓ DO</div>
+                                <div class="do-content" data-en="'Advanced ophthalmology care with experienced specialists.'
+'Clear answers, accurate diagnosis, and modern treatment pathways.'" data-ar="'رعاية طب العيون المتقدمة مع متخصصين ذوي خبرة.'
+'إجابات واضحة وتشخيص دقيق ومسارات علاج حديثة.'">"Advanced ophthalmology care with experienced specialists."
+"Clear answers, accurate diagnosis, and modern treatment pathways."</div>
+                            </div>
+                            <div class="dont-box">
+                                <div class="dont-label" data-en="✗ DON'T" data-ar="✗ لا تفعل">✗ DON'T</div>
+                                <div class="dont-content" data-en="'The best ever.'
+'Guaranteed perfect result.'
+'Limited time miracle treatment.'" data-ar="'الأفضل على الإطلاق.'
+'نتيجة مضمونة مثالية.'
+'علاج معجزة محدود الوقت.'">"The best ever."
+"Guaranteed perfect result."
+"Limited time miracle treatment."</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Identity -->
+                <div class="section">
+                    <div class="section-title" data-en="Visual Identity System" data-ar="نظام الهوية البصرية">Visual Identity System</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Color Palette" data-ar="لوحة الألوان">Color Palette</div>
+                        <div class="color-palette">
+                            <div class="color-item">
+                                <div class="color-box" style="background: #1A9B8E;"></div>
+                                <div class="color-name" data-en="Primary Teal" data-ar="الأزرق الأساسي">Primary Teal</div>
+                                <div class="color-code">#1A9B8E</div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-box" style="background: #0F6B62;"></div>
+                                <div class="color-name" data-en="Deep Teal" data-ar="الأزرق الداكن">Deep Teal</div>
+                                <div class="color-code">#0F6B62</div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-box" style="background: #E8F7F5;"></div>
+                                <div class="color-name" data-en="Pale Teal" data-ar="الأزرق الفاتح">Pale Teal</div>
+                                <div class="color-code">#E8F7F5</div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-box" style="background: #1A1A1A;"></div>
+                                <div class="color-name" data-en="Night Black" data-ar="أسود الليل">Night Black</div>
+                                <div class="color-code">#1A1A1A</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Logo Usage" data-ar="استخدام الشعار">Logo Usage</div>
+                        <div class="subsection-content" data-en="• Always maintain clear space around logo
+• Minimum size: 80px width for digital
+• Approved backgrounds: White, teal, or light backgrounds
+• Never distort, rotate, or alter logo proportions
+• Never place on competing visual elements" data-ar="• الحفاظ دائماً على مساحة واضحة حول الشعار
+• الحد الأدنى للحجم: عرض 80 بكسل للرقمية
+• الخلفيات المعتمدة: خلفيات بيضاء أو زرقاء أو فاتحة
+• لا تشوه أو تدوّر أو تغيّر نسب الشعار
+• لا تضع على عناصر بصرية متنافسة">• Always maintain clear space around logo
+• Minimum size: 80px width for digital
+• Approved backgrounds: White, teal, or light backgrounds
+• Never distort, rotate, or alter logo proportions
+• Never place on competing visual elements</div>
+                    </div>
+                </div>
+
+                <!-- Photography & Video -->
+                <div class="section">
+                    <div class="section-title" data-en="Photography & Video Standards" data-ar="معايير التصوير والفيديو">Photography & Video Standards</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Visual Principle" data-ar="المبدأ البصري">Visual Principle</div>
+                        <div class="subsection-content" data-en="Clinical authority with human reassurance. Show real doctors, real patients (with consent), natural expressions, clean clinical spaces, and cool teal grading." data-ar="السلطة السريرية مع الطمأنينة الإنسانية. أظهر أطباء حقيقيين ومرضى حقيقيين (بموافقة)، تعبيرات طبيعية، مساحات سريرية نظيفة، وتدرج أزرق بارد.">Clinical authority with human reassurance. Show real doctors, real patients (with consent), natural expressions, clean clinical spaces, and cool teal grading.</div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Approved Styles" data-ar="الأنماط المعتمدة">Approved Styles</div>
+                        <div class="subsection-content" data-en="✓ Real doctors and medical professionals
+✓ Real patients with explicit consent
+✓ Natural, authentic expressions
+✓ Clean, modern clinical environments
+✓ Professional lighting with cool tones
+✓ High-resolution imagery (24MP minimum)" data-ar="✓ أطباء حقيقيون ومتخصصون طبيون
+✓ مرضى حقيقيون بموافقة صريحة
+✓ تعبيرات طبيعية وأصلية
+✓ بيئات سريرية نظيفة وحديثة
+✓ إضاءة احترافية بنبرات باردة
+✓ صور عالية الدقة (24 ميجابكسل على الأقل)">✓ Real doctors and medical professionals
+✓ Real patients with explicit consent
+✓ Natural, authentic expressions
+✓ Clean, modern clinical environments
+✓ Professional lighting with cool tones
+✓ High-resolution imagery (24MP minimum)</div>
+                    </div>
+                </div>
+
+                <!-- Content Strategy -->
+                <div class="section">
+                    <div class="section-title" data-en="Content Strategy" data-ar="استراتيجية المحتوى">Content Strategy</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Content Pillars" data-ar="أعمدة المحتوى">Content Pillars</div>
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th data-en="Content Pillar" data-ar="عمود المحتوى">Content Pillar</th>
+                                    <th data-en="Percentage" data-ar="النسبة المئوية">Percentage</th>
+                                    <th data-en="Description" data-ar="الوصف">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-en="Education" data-ar="التعليم">Education</td>
+                                    <td>30%</td>
+                                    <td data-en="Eye health tips, procedure explanations, myth-busting" data-ar="نصائح صحة العيون، شروحات الإجراءات، تفنيد الخرافات">Eye health tips, procedure explanations, myth-busting</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Expertise & Authority" data-ar="الخبرة والسلطة">Expertise & Authority</td>
+                                    <td>25%</td>
+                                    <td data-en="Doctor profiles, research, conference presentations" data-ar="ملفات الأطباء، البحث، عروض المؤتمرات">Doctor profiles, research, conference presentations</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Conversion / Services" data-ar="التحويل / الخدمات">Conversion / Services</td>
+                                    <td>20%</td>
+                                    <td data-en="Service offerings, booking information, packages" data-ar="عروض الخدمات، معلومات الحجز، الحزم">Service offerings, booking information, packages</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Patient Experience" data-ar="تجربة المريض">Patient Experience</td>
+                                    <td>15%</td>
+                                    <td data-en="Patient stories, testimonials, success stories" data-ar="قصص المرضى، الشهادات، قصص النجاح">Patient stories, testimonials, success stories</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Events & Reputation" data-ar="الأحداث والسمعة">Events & Reputation</td>
+                                    <td>10%</td>
+                                    <td data-en="Awards, milestones, community involvement" data-ar="الجوائز والإنجازات والمشاركة المجتمعية">Awards, milestones, community involvement</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Social Media Guidelines -->
+                <div class="section">
+                    <div class="section-title" data-en="Social Media Guidelines" data-ar="إرشادات وسائل التواصل الاجتماعي">Social Media Guidelines</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Posting Frequency" data-ar="تكرار النشر">Posting Frequency</div>
+                        <div class="subsection-content" data-en="• Facebook Feed: 3–4 posts per week
+• Reels: 2 per week
+• Stories: Daily" data-ar="• موجز Facebook: 3-4 منشورات في الأسبوع
+• Reels: منشوران في الأسبوع
+• Stories: يومياً">• Facebook Feed: 3–4 posts per week
+• Reels: 2 per week
+• Stories: Daily</div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="section">
+                    <div class="section-title" data-en="Contact Information" data-ar="معلومات الاتصال">Contact Information</div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-label" data-en="Hotline" data-ar="الخط الساخن">Hotline</div>
+                            <div class="contact-value">16465</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label" data-en="Email" data-ar="البريد الإلكتروني">Email</div>
+                            <div class="contact-value">info@eyeworldhospital.com</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label" data-en="Address" data-ar="العنوان">Address</div>
+                            <div class="contact-value">12 Mossadak St., Dokki, Giza</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label" data-en="Marketing Director" data-ar="مدير التسويق">Marketing Director</div>
+                            <div class="contact-value">Hamdi El Shimi<br>hamdi.shemi@eyeworldhospital.com<br>01092760051</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOP CARE CLINICS PAGE -->
+        <div class="page" id="topcare">
+            <div class="brand-section topcare">
+                <!-- Brand Overview -->
+                <div class="section">
+                    <div class="section-title" data-en="Brand Overview" data-ar="نظرة عامة على العلامة التجارية">Brand Overview</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Strategic Positioning" data-ar="الموضع الاستراتيجي">Strategic Positioning</div>
+                        <div class="subsection-content" data-en="Top Care Clinics is the premium specialist experience brand, combining clinical professionalism with a calm, luxurious, and highly curated patient experience. We focus on head, face, dermatology, dental, and aesthetic specialties. Our positioning emphasizes comfort, speed, premium environment, and VIP treatment. Target audience: A/B+ level patients seeking luxury healthcare with specialist expertise." data-ar="عيادات توب كير هي علامة تجربة متخصصة فاخرة، تجمع بين الاحترافية السريرية وتجربة مريض هادئة وفاخرة ومنسقة بعناية. نركز على تخصصات الرأس والوجه والأمراض الجلدية والأسنان والتجميل. يؤكد موضعنا على الراحة والسرعة والبيئة الفاخرة والعلاج VIP. الجمهور المستهدف: مرضى المستوى A/B+ الذين يسعون للحصول على رعاية صحية فاخرة مع خبرة متخصصة.">Top Care Clinics is the premium specialist experience brand, combining clinical professionalism with a calm, luxurious, and highly curated patient experience. We focus on head, face, dermatology, dental, and aesthetic specialties. Our positioning emphasizes comfort, speed, premium environment, and VIP treatment. Target audience: A/B+ level patients seeking luxury healthcare with specialist expertise.</div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Key Differentiators" data-ar="المميزات الرئيسية">Key Differentiators</div>
+                        <div class="subsection-content" data-en="• Premium experience and VIP treatment atmosphere
+• Multi-specialty specialist care
+• Comfort, speed, and convenience
+• Luxury environment and aesthetic discipline
+• Personalized patient pathways" data-ar="• تجربة فاخرة وأجواء العلاج VIP
+• رعاية متخصصة متعددة التخصصات
+• الراحة والسرعة والراحة
+• بيئة فاخرة وانضباط جمالي
+• مسارات مريض شخصية">• Premium experience and VIP treatment atmosphere
+• Multi-specialty specialist care
+• Comfort, speed, and convenience
+• Luxury environment and aesthetic discipline
+• Personalized patient pathways</div>
+                    </div>
+                </div>
+
+                <!-- Brand Personality -->
+                <div class="section">
+                    <div class="section-title" data-en="Brand Personality & Tone of Voice" data-ar="شخصية العلامة التجارية ونبرة الصوت">Brand Personality & Tone of Voice</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Personality Traits" data-ar="سمات الشخصية">Personality Traits</div>
+                        <div class="subsection-content" data-en="Refined • Calm • Premium • Warm • Assured" data-ar="مكرر • هادئ • فاخر • دافئ • مطمئن">Refined • Calm • Premium • Warm • Assured</div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Do's & Don'ts" data-ar="يجب أن تفعل ولا تفعل">Do's & Don'ts</div>
+                        <div class="do-dont">
+                            <div class="do-box">
+                                <div class="do-label" data-en="✓ DO" data-ar="✓ يجب">✓ DO</div>
+                                <div class="do-content" data-en="'Specialist care in a premium, comfortable setting.'
+'Personalized treatment pathways designed around comfort and confidence.'" data-ar="'رعاية متخصصة في بيئة فاخرة ومريحة.'
+'مسارات علاج شخصية مصممة حول الراحة والثقة.'">"Specialist care in a premium, comfortable setting."
+"Personalized treatment pathways designed around comfort and confidence."</div>
+                            </div>
+                            <div class="dont-box">
+                                <div class="dont-label" data-en="✗ DON'T" data-ar="✗ لا تفعل">✗ DON'T</div>
+                                <div class="dont-content" data-en="'Biggest deal ever.'
+'Crazy offer.'
+'Instant perfect beauty.'
+Overuse of slang or shouty captions." data-ar="'أكبر صفقة على الإطلاق.'
+'عرض مجنون.'
+'جمال فوري مثالي.'
+الإفراط في استخدام اللغة العامية أو التعليقات الصاخبة.">"Biggest deal ever."
+"Crazy offer."
+"Instant perfect beauty."
+Overuse of slang or shouty captions.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Identity -->
+                <div class="section">
+                    <div class="section-title" data-en="Visual Identity System" data-ar="نظام الهوية البصرية">Visual Identity System</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Color Palette" data-ar="لوحة الألوان">Color Palette</div>
+                        <div class="color-palette">
+                            <div class="color-item">
+                                <div class="color-box" style="background: #FAF7F2;"></div>
+                                <div class="color-name" data-en="Cream Background" data-ar="خلفية كريمية">Cream Background</div>
+                                <div class="color-code">#FAF7F2</div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-box" style="background: #1565C0;"></div>
+                                <div class="color-name" data-en="Authority Blue" data-ar="الأزرق السلطة">Authority Blue</div>
+                                <div class="color-code">#1565C0</div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-box" style="background: #E65100;"></div>
+                                <div class="color-name" data-en="Burnt Orange" data-ar="برتقالي محروق">Burnt Orange</div>
+                                <div class="color-code">#E65100</div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-box" style="background: #D4AE78;"></div>
+                                <div class="color-name" data-en="Gold Accent" data-ar="لهجة ذهبية">Gold Accent</div>
+                                <div class="color-code">#D4AE78</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Logo Usage" data-ar="استخدام الشعار">Logo Usage</div>
+                        <div class="subsection-content" data-en="• Always maintain clear space around logo
+• Minimum size: 80px width for digital
+• Approved backgrounds: Cream, white, or dark backgrounds
+• Never distort, rotate, or alter logo proportions
+• Never place on competing visual elements
+• Maintain premium appearance in all applications" data-ar="• الحفاظ دائماً على مساحة واضحة حول الشعار
+• الحد الأدنى للحجم: عرض 80 بكسل للرقمية
+• الخلفيات المعتمدة: خلفيات كريمية أو بيضاء أو داكنة
+• لا تشوه أو تدوّر أو تغيّر نسب الشعار
+• لا تضع على عناصر بصرية متنافسة
+• الحفاظ على المظهر الفاخر في جميع التطبيقات">• Always maintain clear space around logo
+• Minimum size: 80px width for digital
+• Approved backgrounds: Cream, white, or dark backgrounds
+• Never distort, rotate, or alter logo proportions
+• Never place on competing visual elements
+• Maintain premium appearance in all applications</div>
+                    </div>
+                </div>
+
+                <!-- Photography & Video -->
+                <div class="section">
+                    <div class="section-title" data-en="Photography & Video Standards" data-ar="معايير التصوير والفيديو">Photography & Video Standards</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Visual Principle" data-ar="المبدأ البصري">Visual Principle</div>
+                        <div class="subsection-content" data-en="Clinical luxury with real human warmth. Show real clinic interiors, premium patient environments, clean whites and cream tones, high-end portraiture, and elegant close-ups." data-ar="الفخامة السريرية مع الدفء الإنساني الحقيقي. أظهر الداخليات السريرية الحقيقية والبيئات المريضة الفاخرة والنبرات البيضاء والكريمية النظيفة والتصوير الراقي والإغلاقات الأنيقة.">Clinical luxury with real human warmth. Show real clinic interiors, premium patient environments, clean whites and cream tones, high-end portraiture, and elegant close-ups.</div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Approved Styles" data-ar="الأنماط المعتمدة">Approved Styles</div>
+                        <div class="subsection-content" data-en="✓ Real clinic interiors and premium environments
+✓ Real patients with explicit consent
+✓ Natural, confident expressions
+✓ Clean whites and cream color tones
+✓ High-end, professional portraiture
+✓ Elegant close-ups and detail shots
+✓ Professional lighting with warm undertones" data-ar="✓ الداخليات السريرية الحقيقية والبيئات الفاخرة
+✓ مرضى حقيقيون بموافقة صريحة
+✓ تعبيرات طبيعية وواثقة
+✓ نبرات بيضاء وكريمية نظيفة
+✓ تصوير احترافي راقي
+✓ إغلاقات أنيقة وصور التفاصيل
+✓ إضاءة احترافية بنبرات دافئة">✓ Real clinic interiors and premium environments
+✓ Real patients with explicit consent
+✓ Natural, confident expressions
+✓ Clean whites and cream color tones
+✓ High-end, professional portraiture
+✓ Elegant close-ups and detail shots
+✓ Professional lighting with warm undertones</div>
+                    </div>
+                </div>
+
+                <!-- Content Strategy -->
+                <div class="section">
+                    <div class="section-title" data-en="Content Strategy" data-ar="استراتيجية المحتوى">Content Strategy</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Content Pillars" data-ar="أعمدة المحتوى">Content Pillars</div>
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th data-en="Content Pillar" data-ar="عمود المحتوى">Content Pillar</th>
+                                    <th data-en="Percentage" data-ar="النسبة المئوية">Percentage</th>
+                                    <th data-en="Description" data-ar="الوصف">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-en="Education" data-ar="التعليم">Education</td>
+                                    <td>25%</td>
+                                    <td data-en="Aesthetic and dermatology tips, dental care guidance" data-ar="نصائح جمالية وجلدية، إرشادات العناية بالأسنان">Aesthetic and dermatology tips, dental care guidance</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Conversion / Services" data-ar="التحويل / الخدمات">Conversion / Services</td>
+                                    <td>25%</td>
+                                    <td data-en="Service offerings, packages, booking information" data-ar="عروض الخدمات والحزم ومعلومات الحجز">Service offerings, packages, booking information</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Premium Experience" data-ar="تجربة فاخرة">Premium Experience</td>
+                                    <td>20%</td>
+                                    <td data-en="Clinic environment, VIP treatment, comfort focus" data-ar="بيئة العيادة والعلاج VIP وركز الراحة">Clinic environment, VIP treatment, comfort focus</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Specialist Authority" data-ar="سلطة متخصصة">Specialist Authority</td>
+                                    <td>15%</td>
+                                    <td data-en="Doctor profiles, credentials, expertise" data-ar="ملفات الأطباء والبيانات الاعتماد والخبرة">Doctor profiles, credentials, expertise</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Seasonal & Lifestyle" data-ar="الموسمية ونمط الحياة">Seasonal & Lifestyle</td>
+                                    <td>15%</td>
+                                    <td data-en="Beauty trends, self-care campaigns, seasonal offers" data-ar="اتجاهات الجمال وحملات العناية بالذات والعروض الموسمية">Beauty trends, self-care campaigns, seasonal offers</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Social Media Guidelines -->
+                <div class="section">
+                    <div class="section-title" data-en="Social Media Guidelines" data-ar="إرشادات وسائل التواصل الاجتماعي">Social Media Guidelines</div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title" data-en="Posting Frequency" data-ar="تكرار النشر">Posting Frequency</div>
+                        <div class="subsection-content" data-en="• Facebook Feed: 4–5 posts per week
+• Reels: 2–3 per week
+• Stories: Daily" data-ar="• موجز Facebook: 4-5 منشورات في الأسبوع
+• Reels: 2-3 في الأسبوع
+• Stories: يومياً">• Facebook Feed: 4–5 posts per week
+• Reels: 2–3 per week
+• Stories: Daily</div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="section">
+                    <div class="section-title" data-en="Contact Information" data-ar="معلومات الاتصال">Contact Information</div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-label" data-en="Hotline" data-ar="الخط الساخن">Hotline</div>
+                            <div class="contact-value">16465</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label" data-en="Email" data-ar="البريد الإلكتروني">Email</div>
+                            <div class="contact-value">info.topcare@eyeworldhospital.com</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label" data-en="Address" data-ar="العنوان">Address</div>
+                            <div class="contact-value">12 Mossadak St., Dokki, Giza</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label" data-en="Marketing Director" data-ar="مدير التسويق">Marketing Director</div>
+                            <div class="contact-value">Hamdi El Shimi<br>hamdi.shemi@eyeworldhospital.com<br>01092760051</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-text" data-en="© 2026 Eye World Hospital & Top Care Clinics. All rights reserved." data-ar="© 2026 مستشفى عالم العيون وعيادات توب كير. جميع الحقوق محفوظة.">© 2026 Eye World Hospital & Top Care Clinics. All rights reserved.</div>
+        <div class="footer-text" data-en="This document is confidential and intended for ValU partnership use only." data-ar="هذه الوثيقة سرية وموجهة لاستخدام شراكة ValU فقط.">This document is confidential and intended for ValU partnership use only.</div>
+    </div>
+
+    <script>
+        // Language switching
+        function setLanguage(lang) {
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const html = document.documentElement;
+            html.lang = lang;
+            
+            if (lang === 'ar') {
+                document.body.classList.add('ar');
+                document.body.classList.remove('en');
+            } else {
+                document.body.classList.add('en');
+                document.body.classList.remove('ar');
+            }
+
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(el => {
+                if (lang === 'ar') {
+                    el.textContent = el.getAttribute('data-ar');
+                } else {
+                    el.textContent = el.getAttribute('data-en');
+                }
+            });
+
+            html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        }
+
+        // Page navigation
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize
+        setLanguage('en');
+    </script>
+</body>
+</html>
